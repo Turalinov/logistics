@@ -1,0 +1,40 @@
+.block-volume__list {
+  margin-bottom: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.block-volume__controls {
+  position: absolute;
+  top: calc(50% - 30px);
+  z-index: 1;
+  justify-content: space-between;
+  width: 100%;
+}
+
+@media (min-width: 1200px) {
+  .block-volume__list {
+    width: 500px;
+  }
+
+  .block-volume {
+    align-items: flex-start;
+    margin-bottom: 75px;
+
+    .swiper-container {
+      margin-top: 30px;
+    }
+  }
+
+  .block-volume__controls {
+    top: auto;
+    bottom: 35px;
+    left: 15px;
+    justify-content: flex-start;
+  }
+
+  .block-volume__img {
+    object-fit: cover;
+    height: 192px;
+  }
+}

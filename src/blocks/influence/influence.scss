@@ -1,0 +1,139 @@
+.influence {
+  padding: 20px;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.influence__warning {
+  font-weight: 500;
+  text-align: center;
+  color: #ef4932;
+}
+
+.influence__title {
+  width: 70%;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.influence__description {
+  line-height: 16px;
+}
+
+.influence__list {
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.influence__item {
+  height: 60px;
+  margin-bottom: 20px;
+  padding: 20px;
+  padding-top: 15px;
+  overflow: hidden;
+  background: no-repeat center url("../img/influence__bground.png");
+  background-size: cover;
+
+  &--opened {
+    height: auto;
+  }
+
+  p {
+    margin-top: 20px;
+  }
+}
+
+.influence__item-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+
+  p {
+    margin-top: 0;
+  }
+}
+
+.influence__subtitle {
+  align-self: center;
+  font-weight: 500;
+  font-size: 14px;
+  color: white;
+}
+
+.influence__button {
+  width: 30px;
+  height: 30px;
+  background: no-repeat center url("../img/arrow__down-red.png");
+  background-color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+
+  & span {
+    display: none;
+  }
+
+  &--opened {
+    transform: rotate(180deg);
+  }
+}
+
+.influence__subdescription {
+  margin-top: 20px;
+  font-size: 12px;
+  line-height: 16px;
+  color: #ffffff;
+}
+
+@media (min-width: 1200px) {
+  .influence {
+    max-width: 1170px;
+    margin: 40px auto;
+    padding: 20px 0;
+  }
+
+  .influence__warning {
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+
+  .influence__description {
+    width: 930px;
+    margin: 20px auto;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .influence__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 50px;
+  }
+
+  .influence__item {
+    width: 570px;
+    height: 80px;
+    padding: 40px;
+    padding-top: 21px;
+
+    &--opened {
+      height: auto;
+    }
+  }
+
+  .influence__subtitle {
+    font-size: 23px;
+  }
+
+  .influence__button {
+    width: 44px;
+    height: 44px;
+  }
+
+  .influence__subdescription {
+    font-size: 14px;
+  }
+}

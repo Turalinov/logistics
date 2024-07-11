@@ -1,0 +1,57 @@
+<section class="offers offers--volume">
+
+  <div class="offers__body">
+    <div class="offers__inner offers__inner--volume">
+      <form action="" class="offers__form offers__form--volume" data-controller="volume" data-target="volume.form">
+        <h3 class="offers__subtitle offers__subtitle--volume">Калькулятор объёмного груза</h3>
+        <div class="offers__group offers__group--volume">
+          <!-- <div class="offers__item field">
+            <input autocomplete="off" type="text" name="weight" id="t1" class="field__input">
+            <label data-description="Кг/метры" for="t1" class="field__label">Кг/метры</label>
+          </div> -->
+          <div class="offers__item field">
+            <input autocomplete="off" type="number" step="any" min="0.001" name="weight" id="t2" class="field__input" required data-target="volume.quantity">
+            <label data-description="Кол-во" for="t2" class="field__label">Кол-во</label>
+          </div>
+          <div class="offers__item field">
+            <input autocomplete="off" type="number" step="any" min="0.001" name="weight" id="t3" class="field__input" required data-target="volume.length">
+            <label data-description="Длина" for="t3" class="field__label">Длина</label>
+          </div>
+          <div class="offers__item field">
+            <input autocomplete="off" type="number" step="any" min="0.001" name="weight" id="t4" class="field__input" required data-target="volume.width">
+            <label data-description="Ширина" for="t4" class="field__label">Ширина</label>
+          </div>
+          <div class="offers__item field">
+            <input autocomplete="off" type="number" step="any" min="0.001" name="weight" id="t5" class="field__input" required data-target="volume.height">
+            <label data-description="Высота" for="t5" class="field__label">Высота</label>
+          </div>
+          <div class="offers__item field">
+            <input autocomplete="off" type="number" step="any" min="0.001" name="weight" id="t6" class="field__input" required data-target="volume.weight">
+            <label data-description="Вес" for="t6" class="field__label">Вес</label>
+          </div>
+        </div>
+        <div class="offers__row offers__row--volume">
+
+          <div class="offers__controls">
+            <button type="submit" class="offers__button button" data-action="click->volume#calculate">Рассчитать вес</button>
+            <p class="offers__desc">С расчетом вы получите консультацию под кнопку рассчитать стоимость</p>
+          </div>
+          <ul class="offers__volume">
+            <li class="offers__volume-item">
+              <p class="offers__volume-title">Физический вес</p>
+              <p><span class="offers__volume-value" data-target="volume.phis">99.00</span> кг</p>
+            </li>
+            <li class="offers__volume-item">
+              <p class="offers__volume-title">Объемный вес</p>
+              <p><span class="offers__volume-value" data-target="volume.vol">9944.00</span> кг</p>
+            </li>
+            <li class="offers__volume-item">
+              <p class="offers__volume-title">Разница</p>
+              <p><span class="offers__volume-value" data-target="volume.difference">9845.00</span> кг</p>
+            </li>
+          </ul>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,40 @@
+.controls {
+  display: flex;
+}
+
+.controls__button {
+  @include reset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: $c-accent;
+  cursor: pointer;
+
+  &:first-child {
+    border-right: 1px solid rgba(#ffffff, 0.2);
+  }
+
+  &:last-child {
+    border-left: 1px solid rgba(#ffffff, 0.2);
+  }
+
+  svg {
+    width: 19px;
+    height: 8px;
+    fill: #ffffff;
+  }
+}
+
+@media (min-width: 1200px) {
+  .controls__button {
+    width: 55px;
+    height: 55px;
+
+    svg {
+      width: 24px;
+      height: 12px;
+    }
+  }
+}

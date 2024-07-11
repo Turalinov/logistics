@@ -1,0 +1,171 @@
+.header {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+
+  &--light {
+    .header__phone {
+      color: #000000;
+
+      svg {
+        fill: $c-accent;
+      }
+    }
+
+    .header__time {
+      color: #000000;
+    }
+
+    .header__language {
+      color: #000000;
+      background: #e1e1e1;
+
+      &::before {
+        background-image: url("../../img/dropdown@dark.svg");
+      }
+    }
+
+    .menu__burger {
+      svg {
+        fill: $c-accent;
+      }
+    }
+  }
+}
+
+.header__right {
+  display: none;
+  right: 70px;
+    position: absolute;
+
+  &--opened {
+    display: block;
+  }
+}
+
+.header__logo {
+  img {
+    width: 125px;
+    height: auto;
+  }
+
+  &--opened {
+    position: relative;
+    z-index: 102;
+  }
+}
+
+.header__contacts {
+  z-index: 102;
+  display: none;
+  &--inside {
+    display: none;
+  }
+}
+
+.header__language {
+  display: flex;
+  flex-direction: column;
+  position: absolute !important;
+  top: -15px;
+  right: 0;
+  height: 27px;
+  overflow-y: hidden;
+
+  &--opened {
+    height: auto !important;
+
+    &::before {
+      transform: rotate(180deg) !important;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .header {
+    padding: 35px 45px;
+  }
+
+  .header__contacts {
+    display: block;
+    margin-right: 36px;
+    padding-right: 50px;
+
+    &--inside {
+      // padding-right: 0;
+    }
+  }
+
+  .header__menu {
+    order: -1;
+  }
+
+  .header__right {
+    position: relative;
+    display: flex;
+    align-items: center;
+    right: 0;
+  }
+
+  .header__language {
+    position: absolute !important;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    height: 27px;
+    overflow: hidden;
+    transition: 0.3s;
+
+    &:hover {
+      height: 100%;
+      padding-bottom: 40px;
+
+      &::before {
+        top: 11px;
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .header__phone {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 4px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: right;
+    color: #ffffff;
+
+    svg {
+      width: 17px;
+      height: 17px;
+      margin-right: 10px;
+      fill: #ffffff;
+    }
+  }
+
+  .header__logo {
+    position: absolute;
+    left: 50%;
+    z-index: 102;
+    transform: translateX(-50%);
+
+    img {
+      width: 159px;
+    }
+  }
+
+  .header__time {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: right;
+    color: rgba(#ffffff, 0.5);
+  }
+}

@@ -1,0 +1,34 @@
+.offers__volume {
+  display: flex;
+  padding: 0;
+  color: white;
+  flex-direction: column;
+  margin-top: 30px;
+  list-style: none;
+
+  p {
+    font-size: 20px;
+  }
+}
+
+.offers__volume-title {
+  font-size: 14px !important;
+  padding-bottom: 5px;
+  color: rgba(255,255,255,0.5);
+}
+
+.offers__volume-item:not(:last-child) {
+  padding-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .offers__volume {
+    flex-direction: row;
+    margin-top: 0;
+    margin-left: 50px;
+  }
+
+  .offers__volume-item:not(:last-child) {
+    margin-right: 40px;
+  }
+}

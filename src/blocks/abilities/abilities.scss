@@ -1,0 +1,59 @@
+.abilities {
+  padding: 30px 20px 0 20px;
+
+  &:last-of-type {
+    .abilities__wrapper {
+      border-bottom: none;
+    }
+  }
+}
+
+.abilities__wrapper {
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(#000000, 0.2);
+}
+
+.abilities__title {
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.abilities__description {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+@media (min-width: 1200px) {
+  .abilities {
+    @include page-wrapper;
+    padding-top: 40px;
+
+    &:first-of-type {
+      padding-top: 0;
+    }
+  }
+
+  .abilities__title {
+    margin-bottom: 30px;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 24px;
+    /* identical to box height, or 82% */
+
+    letter-spacing: -0.01em;
+  }
+
+  .abilities__description {
+    font-size: 16px;
+    line-height: 25px;
+    /* or 156% */
+
+    letter-spacing: -0.01em;
+  }
+
+  .abilities__wrapper {
+    padding-bottom: 40px;
+  }
+}

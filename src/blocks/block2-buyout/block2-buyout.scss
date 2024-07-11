@@ -1,0 +1,16 @@
+.block2-buyout {
+  padding: 40px 20px;
+}
+
+@media (min-width: 1200px) {
+  .block2-buyout {
+    display: flex;
+    justify-content: space-between;
+    padding-right: calc(50% - 535px);
+    padding-left: calc(50% - 735px);
+  }
+
+  .block2-buyout__img {
+    width: 616px;
+  }
+}

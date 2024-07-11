@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Capitals Logistic</title>
+  <link rel="apple-touch-icon" sizes="57x57" href="img/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="img/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="img/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="img/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="img/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="img/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="img/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="img/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="img/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16x16.png">
+<link rel="manifest" href="img/favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="img/favicons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<header class="header header-inside">
+  <a href="#" class="header__logo logo header-inside__logo">
+    <img src="img/logo@dark.svg" alt="logo">
+  </a>
+  <nav class="header__menu menu header-inside__menu" data-controller="menu">
+    <button class="menu__burger" data-target="menu.link" data-action="click->menu#toggle">
+      <svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="1" y1="1" x2="33" y2="1" stroke="#EF4932" stroke-width="2" stroke-linecap="round"/>
+        <line x1="1" y1="11" x2="19" y2="11" stroke="#EF4932" stroke-width="2" stroke-linecap="round"/>
+        <line x1="25" y1="11" x2="33" y2="11" stroke="#EF4932" stroke-width="2" stroke-linecap="round"/>
+        <line x1="1" y1="21" x2="33" y2="21" stroke="#EF4932" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <div class="menu__wrapper">
+      <p class="menu__title">Меню</p>
+      <ul class="menu__list menu__list--main">
+  <li class="menu__item menu__item--parent">
+    <p data-target="menu.trigger" data-action="click->menu#toggleSublist">
+      <a href="#">Доставка</a>
+    </p>
+    <ul class="menu__sub-list">
+      <li class="menu__sub-item"><a href="#">Самолётом из США</a></li>
+      <li class="menu__sub-item"><a href="#">Морем из США</a></li>
+      <li class="menu__sub-item"><a href="#">Пикапы из США</a></li>
+    </ul>
+  </li>
+  <li class="menu__item menu__item--parent">
+    <p data-target="menu.trigger" data-action="click->menu#toggleSublist">
+      <a href="#">Возим товары</a>
+    </p>
+    <ul class="menu__sub-list">
+      <li class="menu__sub-item"><a href="#">Запчасти и оборудование</a></li>
+      <li class="menu__sub-item"><a href="#">Детские игрушки</a></li>
+      <li class="menu__sub-item"><a href="#">Спортивное питание</a></li>
+      <li class="menu__sub-item"><a href="#">Доставка
+          самолётом</a></li>
+      <li class="menu__sub-item"><a href="#">Косметика и парфюмерия</a></li>
+      <li class="menu__sub-item"><a href="#">Сервера, IT комплектующие</a></li>
+      <li class="menu__sub-item"><a href="#">Одежда, обувь, текстиль</a></li>
+      <li class="menu__sub-item"><a href="#">Мебель, сантехника, интерьер</a></li>
+      <li class="menu__sub-item"><a href="#">Разовые посылки</a></li>
+      <li class="menu__sub-item"><a href="#">Товары из интернет-магазинов</a></li>
+      <li class="menu__sub-item"><a href="#">Спецпредложение для байеров</a></li>
+    </ul>
+  </li>
+  <li class="menu__item menu__item--parent">
+    <p data-target="menu.trigger" data-action="click->menu#toggleSublist">
+      <a href="#">Полезное</a>
+    </p>
+    <ul class="menu__sub-list">
+      <li class="menu__sub-item"><a href="#">Как сделать заказ</a></li>
+      <li class="menu__sub-item"><a href="#">Как сделать описание</a></li>
+      <li class="menu__sub-item"><a href="#">Сроки доставки</a></li>
+      <li class="menu__sub-item"><a href="#">Выкуп и подбор товара</a></li>
+      <li class="menu__sub-item"><a href="#">Возможности склада</a></li>
+      <li class="menu__sub-item"><a href="#">Гарантии сохранности товара</a></li>
+      <li class="menu__sub-item"><a href="#">Расчёт объёмного груза</a></li>
+    </ul>
+  </li>
+  <li class="menu__item menu__item--parent">
+    <p data-target="menu.trigger" data-action="click->menu#toggleSublist">
+      <a href="#">О компании</a>
+    </p>
+    <ul class="menu__sub-list">
+      <li class="menu__sub-item"><a href="#">Читать о нас</a></li>
+    </ul>
+  </li>
+  <li class="menu__item menu__item--parent">
+    <p data-target="menu.trigger" data-action="click->menu#toggleSublist">
+      <a href="#">Контакты</a>
+    </p>
+    <ul class="menu__sub-list">
+      <li class="menu__sub-item"><a href="#">Офис в США</a></li>
+      <li class="menu__sub-item"><a href="#">Офис в Вильнюсе</a></li>
+      <li class="menu__sub-item"><a href="#">Офис в Москве</a></li>
+      <li class="menu__sub-item"><a href="#">Офис в Санкт-Петербурге</a></li>
+    </ul>
+  </li>
+</ul>
+      <!-- <ul class="menu__list">
+        <li class="menu__item"><a href="#">Что мы возим</a></li>
+        <li class="menu__item"><a href="#">Рассчет стоимости</a></li>
+        <li class="menu__item"><a href="#">Наши преимущества</a></li>
+        <li class="menu__item"><a href="#">Как мы работаем</a></li>
+        <li class="menu__item"><a href="#">Доп услуги которые мы оказываем</a></li>
+        <li class="menu__item"><a href="#">Примеры доставки</a></li>
+        <li class="menu__item"><a href="#">Отзывы</a></li>
+        <li class="menu__item"><a href="#">получение консультации</a></li>
+      </ul> -->
+    </div>
+    <div class="overlay-menu" data-controller="menu" data-target="menu.close-link" data-action="click->menu#close"></div>
+
+  </nav>
+  <!-- <ul class="menu-inside">
+  <li class="menu-inside__item">
+    <a href="#" class="menu-inside__link">Виды грузов</a>
+    <ul class="menu-inside__submenu">
+      <li><a href="#">Что тут вообще делать?</a></li>
+      <li><a href="#">Никакой инфы</a></li>
+      <li><a href="#">Либо я просто не вижу</a></li>
+    </ul>
+  </li>
+  <li class="menu-inside__item">
+    <a href="#" class="menu-inside__link">Рассчет стоимости</a>
+  </li>
+  <li class="menu-inside__item">
+    <a href="#" class="menu-inside__link">Навигация</a>
+  </li>
+  <li class="menu-inside__item">
+    <a href="#" class="menu-inside__link">Навигация</a>
+  </li>
+  <li class="menu-inside__item">
+    <a href="#" class="menu-inside__link">Навигация</a>
+  </li>
+</ul> -->
+
+<div class="menu-inside">
+  <ul class="menu-inside__list">
+    <li class="menu-inside__item menu-inside__item--parent">
+      <p>
+        <a class="menu-inside__link" href="http://capitals-wordpress.local:8888/test-page/">Виды грузов</a>
+        <svg width="6" height="11" data-target="menu.trigger">
+          <use xlink:href="img/sprites/sprite.svg#icon-arrow-down"></use>
+        </svg>
+      </p>
+      <ul class="menu-inside__sub-list">
+        <li class="menu-inside__sub-item">
+          <a class="menu-inside__sub-link" href="http://capitals-wordpress.local:8888/sample-page/">Расчет стоимости</a>
+        </li>
+        <li class="menu-inside__sub-item">
+          <a class="menu-inside__sub-link" href="http://capitals-wordpress.local:8888/sample-page/">Расчет стоимости</a>
+        </li>
+        <li class="menu-inside__sub-item">
+          <a class="menu-inside__sub-link" href="http://capitals-wordpress.local:8888/sample-page/">Расчет стоимости</a>
+        </li>
+        <li class="menu-inside__sub-item">
+          <a class="menu-inside__sub-link" href="http://capitals-wordpress.local:8888/sample-page/">Расчет стоимости</a>
+        </li>
+        <li class="menu-inside__sub-item">
+          <a class="menu-inside__sub-link" href="http://capitals-wordpress.local:8888/sample-page/">Расчет стоимости</a>
+        </li>
+        <li class="menu-inside__sub-item">
+          <a class="menu-inside__sub-link" href="http://capitals-wordpress.local:8888/sample-page/">Расчет стоимости</a>
+        </li>
+      </ul>
+    </li>
+    <li class="menu-inside__item">
+      <p>
+        <a class="menu-inside__link" href="http://capitals-wordpress.local:8888/test-page/">Рассчет стоимости</a>
+        <svg width="6" height="11" data-target="menu.trigger">
+          <use xlink:href="http://capitals-wordpress.local:8888/app/themes/Capitals/resources/assets/img/sprites/sprite.svg#icon__arrow"></use>
+        </svg>
+      </p>
+      <ul class="menu-inside__sub-list">
+        <li class="menu-inside__sub-item">
+          <a class="menu-inside__sub-link" href="http://capitals-wordpress.local:8888/sample-page/">Расчет стоимости</a>
+        </li>
+        <li class="menu-inside__sub-item">
+          <a class="menu-inside__sub-link" href="http://capitals-wordpress.local:8888/sample-page/">Расчет стоимости</a>
+        </li>
+        <li class="menu-inside__sub-item">
+          <a class="menu-inside__sub-link" href="http://capitals-wordpress.local:8888/sample-page/">Расчет стоимости Расчет стоимости Расчет стоимости Расчет стоимости</a>
+        </li>
+        <li class="menu-inside__sub-item">
+          <a class="menu-inside__sub-link" href="http://capitals-wordpress.local:8888/sample-page/">Расчет стоимости</a>
+        </li>
+      </ul>
+    </li>
+    <li class="menu-inside__item">
+      <p>
+        <a class="menu-inside__link" href="http://capitals-wordpress.local:8888/test-page/">Навигация</a>
+        <svg width="6" height="11" data-target="menu.trigger">
+          <use xlink:href="http://capitals-wordpress.local:8888/app/themes/Capitals/resources/assets/img/sprites/sprite.svg#icon__arrow"></use>
+        </svg>
+      </p>
+    </li>
+    <li class="menu-inside__item">
+      <p>
+        <a class="menu-inside__link" href="http://capitals-wordpress.local:8888/test-page/">Навигация</a>
+        <svg width="6" height="11" data-target="menu.trigger">
+          <use xlink:href="http://capitals-wordpress.local:8888/app/themes/Capitals/resources/assets/img/sprites/sprite.svg#icon__arrow"></use>
+        </svg>
+      </p>
+    </li>
+    <li class="menu-inside__item">
+      <p>
+        <a class="menu-inside__link" href="http://capitals-wordpress.local:8888/test-page/">Навигация</a>
+        <svg width="6" height="11" data-target="menu.trigger">
+          <use xlink:href="http://capitals-wordpress.local:8888/app/themes/Capitals/resources/assets/img/sprites/sprite.svg#icon__arrow"></use>
+        </svg>
+      </p>
+    </li>
+  </ul>
+</div>
+
+  <div class="header__right header-inside__right" data-controller="language">
+    <div class="header__contacts header__contacts--inside">
+      <a href="#" class="header__phone header-inside__phone">
+        <svg>
+          <use xlink:href="img/sprites/sprite.svg#icon-phone"></use>
+        </svg>
+        +7 800 360-45-77
+      </a>
+      <p class="header__time header-inside__time">Пн-Пт с 9:00 до 21:00</p>
+    </div>
+    <ul class="header__language language header-inside__language" data-target="language.list" data-action="click->language#toggle">
+      <li class="language__item language__item--current">
+        <a href="http://capitals-wordpress.local:8888/">ru</a>
+      </li>
+      <li class="language__item">
+        <a href="http://capitals-wordpress.local:8888/en/index/">en</a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <section class="page-title">
+    <h1 class="page-title__title">Расчет объемного груза</h1>
+    <ul class="breadcrumbs">
+  <li class="breadcrumbs__item">
+    <a href="#" class="breadcrumbs__link">Главная</a>
+  </li>
+  <li class="breadcrumbs__item breadcrumbs__item--current">
+    <a href="#" class="breadcrumbs__link">Сроки доставки</a>
+  </li>
+</ul>
+
+  </section>
+  <section class="block-volume block-guarantees" data-controller="slider-block">
+  <div class="swiper-container" data-target="slider-block.container">
+    <ul class="block-volume__list swiper-wrapper">
+      <li class="block-volume__item swiper-slide">
+        <img class="block-volume__img" src="img/abilities__slide1.png" alt="">
+      </li>
+      <li class="block-volume__item swiper-slide">
+        <img class="block-volume__img" src="img/abilities__slide1.png" alt="">
+      </li>
+      <li class="block-volume__item swiper-slide">
+        <img class="block-volume__img" src="img/abilities__slide1.png" alt="">
+      </li>
+    </ul>
+    <div class="block-volume__controls controls">
+      <button class="controls__button" data-target="slider-block.prev">
+        <svg>
+          <use xlink:href="img/sprites/sprite.svg#icon-arrow-left"></use>
+        </svg>
+      </button>
+      <button class="controls__button" data-target="slider-block.next">
+        <svg>
+          <use xlink:href="img/sprites/sprite.svg#icon-arrow-right"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="block-volume__box block-guarantees__box">
+    <h2 class="block-volume__title title block-guarantees__title">Какой-то заголовок</h2>
+    <p class="block-volume__text block-guarantees__text">Одним из основных направлений компании ATLANTIC FREIGHT, помимо грузоперевозок из США, является предоставление профессионального складского сервиса по территории Соединенных Штатов: Делавэр, Нью-Йорк, Хьюстон, Чикаго, Лос-Анджелес и Майями. </p>
+    <p class="block-volume__text block-guarantees__text">Одним из основных направлений компании ATLANTIC FREIGHT, помимо грузоперевозок из США, является предоставление профессионального складского сервиса по территории Соединенных Штатов: Делавэр, Нью-Йорк, Хьюстон, Чикаго, Лос-Анджелес и Майями. </p>
+  </div>
+</section>
+
+
+  <section class="offers offers--volume">
+
+  <div class="offers__body">
+    <div class="offers__inner offers__inner--volume">
+      <form action="" class="offers__form offers__form--volume" data-controller="volume" data-target="volume.form">
+        <h3 class="offers__subtitle offers__subtitle--volume">Калькулятор объёмного груза</h3>
+        <div class="offers__group offers__group--volume">
+          <!-- <div class="offers__item field">
+            <input autocomplete="off" type="text" name="weight" id="t1" class="field__input">
+            <label data-description="Кг/метры" for="t1" class="field__label">Кг/метры</label>
+          </div> -->
+          <div class="offers__item field">
+            <input autocomplete="off" type="number" step="any" min="0.001" name="weight" id="t2" class="field__input" required data-target="volume.quantity">
+            <label data-description="Кол-во" for="t2" class="field__label">Кол-во</label>
+          </div>
+          <div class="offers__item field">
+            <input autocomplete="off" type="number" step="any" min="0.001" name="weight" id="t3" class="field__input" required data-target="volume.length">
+            <label data-description="Длина" for="t3" class="field__label">Длина</label>
+          </div>
+          <div class="offers__item field">
+            <input autocomplete="off" type="number" step="any" min="0.001" name="weight" id="t4" class="field__input" required data-target="volume.width">
+            <label data-description="Ширина" for="t4" class="field__label">Ширина</label>
+          </div>
+          <div class="offers__item field">
+            <input autocomplete="off" type="number" step="any" min="0.001" name="weight" id="t5" class="field__input" required data-target="volume.height">
+            <label data-description="Высота" for="t5" class="field__label">Высота</label>
+          </div>
+          <div class="offers__item field">
+            <input autocomplete="off" type="number" step="any" min="0.001" name="weight" id="t6" class="field__input" required data-target="volume.weight">
+            <label data-description="Вес" for="t6" class="field__label">Вес</label>
+          </div>
+        </div>
+        <div class="offers__row offers__row--volume">
+
+          <div class="offers__controls">
+            <button type="submit" class="offers__button button" data-action="click->volume#calculate">Рассчитать вес</button>
+            <p class="offers__desc">С расчетом вы получите консультацию под кнопку рассчитать стоимость</p>
+          </div>
+          <ul class="offers__volume">
+            <li class="offers__volume-item">
+              <p class="offers__volume-title">Физический вес</p>
+              <p><span class="offers__volume-value" data-target="volume.phis">99.00</span> кг</p>
+            </li>
+            <li class="offers__volume-item">
+              <p class="offers__volume-title">Объемный вес</p>
+              <p><span class="offers__volume-value" data-target="volume.vol">9944.00</span> кг</p>
+            </li>
+            <li class="offers__volume-item">
+              <p class="offers__volume-title">Разница</p>
+              <p><span class="offers__volume-value" data-target="volume.difference">9845.00</span> кг</p>
+            </li>
+          </ul>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+  <section class="contacts-info">
+  <div class="contacts-info__inner">
+    <div class="contacts-info__img"></div>
+    <section class="offers offers--inside offers--contacts">
+      <p class="offers__title offers__title--contacts">Предоставим контакты клиентов, которые <span>расскажут вам о нашей работе</span> </p>
+      <p class="offers__subtitle offers__subtitle--contacts">По мелким вопросам
+        мы не беспокоим,
+       а если у вас есть вопрос
+       или нужна помощь,
+       вы можете написать
+       или позвонить
+       вашему персональному
+        менеджеру</p>
+      <form action="" class="offers__form offers__form--inside offers__form--contacts">
+        <div class="offers__group">
+          <div class="offers__item field">
+            <input autocomplete="off" type="text" name="weight" id="t3" class="field__input offers-inside__input">
+            <label data-description="Ваше имя" for="t3" class="field__label offers-inside__label">Ваше имя</label>
+          </div>
+          <div class="offers__item field">
+            <input autocomplete="off" type="text" inputmode="tel" name="weight" id="t4" class="field__input field__input--phone offers-inside__input">
+            <label data-description="Ваш телефон" for="t4" class="field__label offers-inside__label">Ваш телефон</label>
+          </div>
+        </div>
+        <div class="offers__row offers__row--contacts">
+          <div class="offers__controls">
+            <button class="offers__button button offers__button--contacts">Оствить заявку на получение отзывов</button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+  </div>
+</section>
+
+</main>
+<footer class="footer">
+  <div class="footer__video">
+    <video class="lazy" src="img/footer-video.mp4" loop autoplay muted lazy></video>
+  </div>
+  <div class="footer__content">
+    <p class="footer__title">Решим любую задачу с любовью к вам и вашему грузу</p>
+    <p class="footer__description"><b>Свяжитесь с нами любым удобным способом,</b> мы бесплатно проконсультируем вас и поможем решить задачу, даже если вы не будете заказывать у нас</p>
+    <div class="contacts__tabs tabs" data-tabs>
+      <ul class="tabs__list">
+        <li class="tabs__item tabs__item--active" data-tab="1">Офис в Москве</li>
+        <li class="tabs__item" data-tab="2">Офис в Питере</li>
+        <li class="tabs__item" data-tab="3">Офис в США</li>
+      </ul>
+      <div class="contacts__inner">
+        <div class="tabs__content tabs__content--active" data-content="1">
+          <div class="contacts__row">
+            <div class="contacts__phone">
+              <a href="">+7 (800) <b>360-45-77</b></a>
+              <span>Перезвоним за 8 сек.</span>
+            </div>
+            <ul class="contacts__social social">
+              <li class="social__item"><a href="#"><img src="img/whatsapp.svg" alt=""></a></li>
+              <li class="social__item"><a href="#"><img src="img/viber-2.svg" alt=""></a></li>
+              <li class="social__item"><a href="#"><img src="img/telegram.svg" alt=""></a></li>
+            </ul>
+            <a href="" class="contacts__email">hi@accom.com</a>
+          </div>
+          <div class="contacts__contacts">
+            <div class="contacts__col">
+              <p class="contacts__header">Адрес офиса: </p>
+              <p class="contacts__text">Москва, Башни Федерации, 45 этаж, 8 офис</p>
+            </div>
+            <div class="contacts__col">
+              <p class="contacts__text">Время работы офиса: 09:00 - 19:00</p>
+              <p class="contacts__text">Время работы над проектами: 24/7</p>
+            </div>
+          </div>
+        </div>
+        <div class="tabs__content" data-content="2">
+          <div class="contacts__row">
+            <div class="contacts__phone">
+              <a href="">+7 (800) <b>360-45-77</b></a>
+              <span>Перезвоним за 8 сек.</span>
+            </div>
+            <ul class="contacts__social social">
+              <li class="social__item"><a href="#"><img src="img/whatsapp.svg" alt=""></a></li>
+              <li class="social__item"><a href="#"><img src="img/viber-2.svg" alt=""></a></li>
+              <li class="social__item"><a href="#"><img src="img/telegram.svg" alt=""></a></li>
+            </ul>
+            <a href="" class="contacts__email">hi@accom.com</a>
+          </div>
+          <div class="contacts__contacts">
+            <div class="contacts__col">
+              <p class="contacts__header">Адрес офиса: </p>
+              <p class="contacts__text">Питере, Башни Федерации, 45 этаж, 8 офис</p>
+            </div>
+            <div class="contacts__col">
+              <p class="contacts__text">Время работы офиса: 09:00 - 19:00</p>
+              <p class="contacts__text">Время работы над проектами: 24/7</p>
+            </div>
+          </div>
+        </div>
+        <div class="tabs__content" data-content="3">
+          <div class="contacts__row">
+            <div class="contacts__phone">
+              <a href="">+7 (800) <b>360-45-77</b></a>
+              <span>Перезвоним за 8 сек.</span>
+            </div>
+            <ul class="contacts__social social">
+              <li class="social__item"><a href="#"><img src="img/whatsapp.svg" alt=""></a></li>
+              <li class="social__item"><a href="#"><img src="img/viber-2.svg" alt=""></a></li>
+              <li class="social__item"><a href="#"><img src="img/telegram.svg" alt=""></a></li>
+            </ul>
+            <a href="" class="contacts__email">hi@accom.com</a>
+          </div>
+          <div class="contacts__contacts">
+            <div class="contacts__col">
+              <p class="contacts__header">Адрес офиса: </p>
+              <p class="contacts__text">США, Башни Федерации, 45 этаж, 8 офис</p>
+            </div>
+            <div class="contacts__col">
+              <p class="contacts__text">Время работы офиса: 09:00 - 19:00</p>
+              <p class="contacts__text">Время работы над проектами: 24/7</p>
+            </div>
+          </div>
+        </div>
+        <a href="" class="footer__button button get-popup" data-popup="popup-consultation">Рассчитать стоимость</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <img src="img/logo.svg" alt="" class="footer__logo">
+    <ul class="footer__list">
+      <li class="footer__item"><a href="#">Реквизиты</a></li>
+      <li class="footer__item"><a href="#">Политика конфиденциальности</a></li>
+      <li class="footer__item"><a href="#">Перевозчикамм</a></li>
+      <li class="footer__item"><a href="#">Создание и продвижение сайтов</a></li>
+    </ul>
+    <ul class="footer__social social">
+      <li class="social__item"><a href="#"><img src="img/whatsapp.svg" alt=""></a></li>
+      <li class="social__item"><a href="#"><img src="img/viber-2.svg" alt=""></a></li>
+      <li class="social__item"><a href="#"><img src="img/telegram.svg" alt=""></a></li>
+    </ul>
+  </div>
+</footer>
+
+<div class="popup" data-popup="popup">
+  <div class="popup__wrapper">
+    <div class="popup__body popup__body--callback">
+      <button class="popup__close" aria-label="close">
+        <svg>
+          <use xlink:href="img/sprites/sprite.svg#icon-close"></use>
+        </svg>
+      </button>
+      <p class="popup__title">Оставьте заявку </p>
+      <form data-controller="send-form" data-action="submit->send-form#send" action="post" class="popup__form">
+        <div class="popup__group">
+        <div class="popup__field field field--light" data-message="Введено некорректное имя">
+          <input required autocomplete="off" type="text" name="weight" id="t2" class="field__input">
+          <label data-description="Ваше имя" for="t2" class="field__label">Ваше имя</label>
+        </div>
+        <div class="popup__field field field--light" data-message="Введен некорректный номер">
+          <input autocomplete="off" type="text" inputmode="tel" name="weight" id="t4" class="field__input field__input--phone">
+          <label data-description="Ваш телефон" for="t4" class="field__label">Ваш телефон</label>
+        </div>
+        <div class="popup__field field field--light" data-message="Введена некорректная почта">
+          <input autocomplete="off" inputmode="email" type="text" name="weight" id="t5" class="field__input">
+          <label data-description="Ваша почта" for="t5" class="field__label">Ваша почта</label>
+        </div>
+        </div>
+        <button type="submit" class="popup__button button">Оставить заявку</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="js/vendor.js"></script>
+<script src="js/general.js"></script>
+</body>
+</html>
