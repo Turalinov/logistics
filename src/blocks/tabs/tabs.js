@@ -26,13 +26,17 @@ class Tabs {
   }
 
   getTabs() {
-    return this._target.querySelectorAll(`[${this.DEFAULT_OPTION.DATA_TAB}]`);
+    const el = this._target.querySelectorAll(`[${this.DEFAULT_OPTION.DATA_TAB}]`);
+    return el
   }
 
   toggleTab(item) {
     const id = item.getAttribute(this.DEFAULT_OPTION.DATA_TAB);
+
     const content = this._target.querySelector(`[${this.DEFAULT_OPTION.DATA_CONTENT}="${id}"]`);
+
     const activeTab = this._target.querySelector(`.${this.DEFAULT_OPTION.TAB_ACTIVE_CLASS}[${this.DEFAULT_OPTION.DATA_TAB}]`);
+
     const activeContent = this._target.querySelector(`.${this.DEFAULT_OPTION.CONTENT_ACTIVE_CLASS}[${this.DEFAULT_OPTION.DATA_CONTENT}]`);
 
     this.toggleClass(activeTab, item, this.DEFAULT_OPTION.TAB_ACTIVE_CLASS);
@@ -45,6 +49,17 @@ class Tabs {
   }
 }
 
-export default Tabs;
+export default function tabs() {
+
+  const tabs = document.querySelectorAll(`.tabs`);
+  if (tabs) {
+    console.log('tabs.js');
+
+    tabs.forEach(item => new Tabs(item));
+  }
+}
+
+
+
 
 

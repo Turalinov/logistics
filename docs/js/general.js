@@ -155,17 +155,389 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/blocks/popup/popup.js":
-/*!***********************************!*\
-  !*** ./src/blocks/popup/popup.js ***!
-  \***********************************/
-/*! exports provided: Popup, PopupThanks */
+/***/ "./src/blocks/animation/animation.js":
+/*!*******************************************!*\
+  !*** ./src/blocks/animation/animation.js ***!
+  \*******************************************/
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Popup", function() { return Popup; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return animation; });
+/* harmony import */ var _js_util_cloud_animation_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../js/util/cloud-animation.js */ "./src/js/util/cloud-animation.js");
+
+function animation() {
+  console.log('animation.js');
+  var WORD_DELAY = 50;
+  var isChatAnimate = true;
+  var about = document.querySelector(".about");
+  var chatMessages = document.querySelectorAll(".chat__item");
+  var cta = document.querySelector(".cta");
+  var consultation = document.querySelector(".consultation");
+  function getCoords(elem) {
+    // кроме IE8-
+    var box = elem.getBoundingClientRect();
+    return {
+      top: box.top + pageYOffset,
+      left: box.left + pageXOffset
+    };
+  }
+
+  /**
+   * Автоматический набор текста
+    txt : блок с текстом
+    word : текст из дата атрибута
+    wordArray : разбивает строку текста на отдельные буквы и записывает в массив
+   *
+   */
+  var writeText = function writeText(txt) {
+    var word = txt.getAttribute("data-word");
+    var wordArray = word.split('');
+    var _loop = function _loop(i) {
+      setTimeout(function () {
+        txt.innerHTML = txt.innerHTML + wordArray[i];
+      }, WORD_DELAY * i);
+    };
+    for (var i = 0; i < wordArray.length; i++) {
+      _loop(i);
+    }
+  };
+
+  // Получает массив задержек, за сколько отрисовывается КАЖДЫЙ текст в блоке по отдельности, задержку от нулевого индекса приравниваем к 0
+  var getTimeArray = function getTimeArray() {
+    var timer = [0];
+    chatMessages.forEach(function (item) {
+      // Находит длину каждого текста и умножает на задержку между буквами
+      var time = item.querySelector(".chat__text").getAttribute("data-word").length * WORD_DELAY;
+      // Пушит новое значение в массив
+      timer.push(time);
+    });
+    return timer;
+  };
+  function animateChat() {
+    // Массив временных промежутков, за каждый из которых текст полностью печатается в определенном блоке
+    var timerArray = getTimeArray();
+
+    // Объявляем переменную задержки времени между блоками
+    var time;
+    chatMessages.forEach(function (item, index) {
+      var text = item.querySelector(".chat__text");
+      // const time = text.getAttribute(`data-time`);
+
+      // Переопределяем задержку времени для кажого блока в зависимости от итерации
+      timerArray[index] == 0 ? time = 0 : time = time + timerArray[index] + 1100;
+
+      // Отрисовываем текст
+      setTimeout(function () {
+        // Отображаем блок
+        item.classList.add("chat__item--active");
+        setTimeout(function () {
+          writeText(text);
+        }, 300);
+      }, time);
+    });
+    isChatAnimate = false;
+  }
+  var deliveryNumbers = document.querySelectorAll(".page-info__number");
+  window.addEventListener("scroll", function () {
+    if (about) {
+      if (window.pageYOffset >= getCoords(about).top - 150) {
+        if (isChatAnimate) {
+          animateChat();
+        }
+      }
+    }
+    if (cta) {
+      if (window.pageYOffset >= getCoords(cta).top - 150) {
+        cta.classList.add("cta--active");
+      }
+    }
+    if (consultation) {
+      if (window.pageYOffset >= getCoords(consultation).top - 150) {
+        consultation.classList.add("consultation--active");
+      }
+    }
+    if (deliveryNumbers) {
+      deliveryNumbers.forEach(function (it) {
+        if (window.pageYOffset >= getCoords(it).top - 500) {
+          it.classList.add("page-info__number--active");
+        }
+      });
+    }
+  });
+
+  // Анимация облаков ****************************************************
+  var wordsWrappers = document.querySelectorAll(".page-info__item--img");
+  if (wordsWrappers) {
+    if (window.matchMedia("(min-width: 1200px)").matches) {
+      wordsWrappers.forEach(function (it) {
+        Object(_js_util_cloud_animation_js__WEBPACK_IMPORTED_MODULE_0__["cloudAnimation"])(it);
+      });
+    }
+  }
+}
+
+/***/ }),
+
+/***/ "./src/blocks/field/field.js":
+/*!***********************************!*\
+  !*** ./src/blocks/field/field.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return field; });
+/* harmony import */ var imask__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! imask */ "./node_modules/imask/esm/index.js");
+
+function field() {
+  var inputs = document.querySelectorAll('.field__input');
+  if (inputs) {
+    var fixTextareaSize = function fixTextareaSize(textarea) {
+      textarea.style.height = textarea.scrollHeight + 2 + "px";
+    };
+    console.log('field.js');
+    var phones = document.querySelectorAll(".field__input--phone");
+    var textareas = document.querySelectorAll('.field__textarea');
+    var phoneOption = {
+      mask: '{+7} (000) 000-00-00',
+      lazy: true
+    };
+    textareas.forEach(function (item) {
+      item.addEventListener('input', function (e) {
+        fixTextareaSize(e.target);
+      });
+      fixTextareaSize(item);
+    });
+
+    // Инициализация маски для телефона
+    phones.forEach(function (item) {
+      var mask = Object(imask__WEBPACK_IMPORTED_MODULE_0__["default"])(item, phoneOption);
+      item.addEventListener('focus', function () {
+        // если true - то подсказка при фокусе не появляется, если false подсказка появляется сразу
+        mask.updateOptions({
+          lazy: false
+        });
+      }, true);
+      item.addEventListener('blur', function () {
+        mask.updateOptions({
+          lazy: true
+        });
+        if (!mask.masked.rawInputValue) {
+          mask.value = '';
+          item.parentNode.classList.remove('field--no-empty');
+        }
+      }, true);
+    });
+    inputs.forEach(function (item) {
+      item.addEventListener('input', function () {
+        if (item.value.length > 0) {
+          item.parentNode.classList.add('field--no-empty');
+        } else {
+          item.parentNode.classList.remove('field--no-empty');
+        }
+      });
+    });
+  }
+}
+
+/***/ }),
+
+/***/ "./src/blocks/form/form.js":
+/*!*********************************!*\
+  !*** ./src/blocks/form/form.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return form; });
+/* harmony import */ var _blocks_popup_popup_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../blocks/popup/popup.js */ "./src/blocks/popup/popup.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+
+function form() {
+  var forms = document.querySelectorAll("form");
+  if (forms && forms.length > 0) {
+    console.log('form.js');
+    var popupThanks = document.querySelector(".popup--thanks");
+
+    //валидация
+    var formValidate = function formValidate(form) {
+      var fields = form.elements;
+      //первичный флаг проверки установлен в true
+      var result = true;
+      var phoneRegular = /^\d+$/;
+      [].forEach.call(fields, function (el) {
+        var parent = el.parentElement;
+        var label = parent.querySelector('label');
+
+        // Переопределяем если у элемента отсутствует label (кнопки управления, кастомные селекты)
+        if (!label) {
+          // Проверяем элемент на наличие кнопки отправки
+          if (parent.classList.contains('offers__controls')) {
+            return; // Прерывает только текущую итерацию функции
+          }
+          // Переопределяем в кастомном селекте
+          label = parent.closest('.offers__item').querySelector('label');
+        }
+        var tel = el.classList.contains('field__input--phone');
+        var errorMessage = parent.dataset.message;
+        var labelText = label.getAttribute('data-description');
+        if (
+        //если это поле required и это поле пустое
+        el.required && el.value.length < 1 ||
+        // или если это поле телефона и количество строк меньше 18 и телефон не проходит тест ругулярки
+        tel && el.value.length < 18 && !phoneRegular.test(el.value) ||
+        //или если это поле email и это поле пустое или введен один символ и у поле нет @
+        el.inputMode === 'email' && el.value.length >= 1 && el.value.indexOf("@") < 1) {
+          // если поле пустое даем label новое значение
+          if (el.value.length < 1) {
+            label.innerHTML = 'Поле должно быть заполнено';
+          } else {
+            label.innerHTML = errorMessage;
+          }
+          parent.classList.add('field--no-empty');
+          parent.classList.add('field--error');
+          setTimeout(function () {
+            parent.classList.remove('field--error');
+            label.innerHTML = labelText;
+            if (el.value.length === 0) {
+              parent.classList.remove('field--no-empty');
+            }
+          }, 2000);
+          result = false;
+        }
+      });
+      return result;
+    };
+
+    //отправка данных
+    var postData = /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(url, data) {
+        var response;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return fetch(url, {
+                method: "POST",
+                body: data
+              }).then( /*#__PURE__*/function () {
+                var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(response) {
+                  return _regeneratorRuntime().wrap(function _callee$(_context) {
+                    while (1) switch (_context.prev = _context.next) {
+                      case 0:
+                        if (!(response.status !== 200)) {
+                          _context.next = 3;
+                          break;
+                        }
+                        console.log('Looks like there was a problem. Status Code: ' + response.status);
+                        return _context.abrupt("return", Promise.reject(new Error("Looks like there was a problem. Status Code: ".concat(response.status))));
+                      case 3:
+                        console.log('success');
+                        _context.next = 6;
+                        return response.json();
+                      case 6:
+                        return _context.abrupt("return", _context.sent);
+                      case 7:
+                      case "end":
+                        return _context.stop();
+                    }
+                  }, _callee);
+                }));
+                return function (_x3) {
+                  return _ref2.apply(this, arguments);
+                };
+              }());
+            case 2:
+              response = _context2.sent;
+            case 3:
+            case "end":
+              return _context2.stop();
+          }
+        }, _callee2);
+      }));
+      return function postData(_x, _x2) {
+        return _ref.apply(this, arguments);
+      };
+    }();
+    var send = function send(evt) {
+      evt.preventDefault();
+      var target = evt.target;
+      var formData = new FormData(target);
+      if (formValidate(target)) {
+        //обаботка в зависимости от результата отправки
+        postData("vendor/action-form.php", formData).then(function (data) {
+          console.log({
+            data: data
+          });
+          target.reset();
+
+          //показываем модалку благодарности
+          new _blocks_popup_popup_js__WEBPACK_IMPORTED_MODULE_0__["PopupThanks"](popupThanks).openPopup();
+        })["catch"](function (err) {
+          console.log(err.message);
+          alert(err.message);
+
+          //можем показать модалку с ошибкой
+        })["finally"](function () {
+          //
+        });
+      } else {
+        console.log("error form validate");
+      }
+    };
+    forms.forEach(function (item) {
+      if (!item.classList.contains("offers__form--volume")) {
+        item.addEventListener("submit", function (evt) {
+          send(evt);
+        });
+      }
+    });
+  }
+}
+
+/***/ }),
+
+/***/ "./src/blocks/map/map.js":
+/*!*******************************!*\
+  !*** ./src/blocks/map/map.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return mapBox; });
+/* harmony import */ var _js_util_map__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../js/util/map */ "./src/js/util/map.js");
+
+function mapBox() {
+  var mapBox = document.querySelector("#map");
+  if (mapBox) {
+    console.log('map.js');
+    Object(_js_util_map__WEBPACK_IMPORTED_MODULE_0__["map"])();
+  }
+}
+
+/***/ }),
+
+/***/ "./src/blocks/popup/popup.js":
+/*!***********************************!*\
+  !*** ./src/blocks/popup/popup.js ***!
+  \***********************************/
+/*! exports provided: PopupThanks, popup */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PopupThanks", function() { return PopupThanks; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "popup", function() { return popup; });
 function _callSuper(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
 function _possibleConstructorReturn(t, e) { if (e && ("object" == _typeof(e) || "function" == typeof e)) return e; if (void 0 !== e) throw new TypeError("Derived constructors may only return object or undefined"); return _assertThisInitialized(t); }
 function _assertThisInitialized(e) { if (void 0 === e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); return e; }
@@ -267,7 +639,79 @@ var PopupThanks = /*#__PURE__*/function (_Popup) {
     }
   }]);
 }(Popup);
+function popup() {
+  var popups = document.querySelectorAll(".popup");
+  if (popups) {
+    console.log('popups.js');
+    popups.forEach(function (it) {
+      new Popup(it);
+    });
+  }
+}
 
+
+/***/ }),
+
+/***/ "./src/blocks/promo/promo.js":
+/*!***********************************!*\
+  !*** ./src/blocks/promo/promo.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return promo; });
+function promo() {
+  var infinity = document.querySelector('.promo__accent b');
+  if (infinity) {
+    var addInfinity = function addInfinity() {
+      var _loop = function _loop(i) {
+        setTimeout(function () {
+          if (i === 200) {
+            infinity.innerHTML = '∞';
+            infinity.parentNode.classList.add('promo__accent--big');
+          } else {
+            infinity.innerHTML = i;
+          }
+        }, i * 17);
+      };
+      for (var i = 2; i <= 200; i++) {
+        _loop(i);
+      }
+    };
+    console.log('promo.js');
+    addInfinity();
+  }
+}
+
+/***/ }),
+
+/***/ "./src/blocks/scroll-links/scroll-links.js":
+/*!*************************************************!*\
+  !*** ./src/blocks/scroll-links/scroll-links.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return scrollLinks; });
+function scrollLinks() {
+  var scrollLinks = document.querySelectorAll('.scroll-link');
+  if (scrollLinks) {
+    scrollLinks.forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        var targetId = this.getAttribute('href').substring(1);
+        var targetElement = document.getElementById(targetId);
+        targetElement.scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  }
+}
 
 /***/ }),
 
@@ -280,6 +724,7 @@ var PopupThanks = /*#__PURE__*/function (_Popup) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return tabs; });
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
 function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
@@ -317,7 +762,8 @@ var Tabs = /*#__PURE__*/function () {
   }, {
     key: "getTabs",
     value: function getTabs() {
-      return this._target.querySelectorAll("[".concat(this.DEFAULT_OPTION.DATA_TAB, "]"));
+      var el = this._target.querySelectorAll("[".concat(this.DEFAULT_OPTION.DATA_TAB, "]"));
+      return el;
     }
   }, {
     key: "toggleTab",
@@ -337,7 +783,55 @@ var Tabs = /*#__PURE__*/function () {
     }
   }]);
 }();
-/* harmony default export */ __webpack_exports__["default"] = (Tabs);
+function tabs() {
+  var tabs = document.querySelectorAll(".tabs");
+  if (tabs) {
+    console.log('tabs.js');
+    tabs.forEach(function (item) {
+      return new Tabs(item);
+    });
+  }
+}
+
+/***/ }),
+
+/***/ "./src/blocks/video/video.js":
+/*!***********************************!*\
+  !*** ./src/blocks/video/video.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return video; });
+function video() {
+  console.log('video.js');
+  document.addEventListener("DOMContentLoaded", function () {
+    var lazyVideos = [].slice.call(document.querySelectorAll("video.lazy"));
+    if ("IntersectionObserver" in window) {
+      console.log('IntersectionObserver');
+      var lazyVideoObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (video) {
+          if (video.isIntersecting) {
+            for (var source in video.target.children) {
+              var videoSource = video.target.children[source];
+              if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
+                videoSource.src = videoSource.dataset.src;
+              }
+            }
+            video.target.load();
+            video.target.classList.remove("lazy");
+            lazyVideoObserver.unobserve(video.target);
+          }
+        });
+      });
+      lazyVideos.forEach(function (lazyVideo) {
+        lazyVideoObserver.observe(lazyVideo);
+      });
+    }
+  });
+}
 
 /***/ }),
 
@@ -805,7 +1299,7 @@ var _default = /*#__PURE__*/function (_Controller) {
   return _createClass(_default, [{
     key: "connect",
     value: function connect() {
-      this.init();
+      // this.init();
     }
   }, {
     key: "init",
@@ -1398,327 +1892,38 @@ _defineProperty(_default, "targets", ["quantity", "length", "width", "height", "
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var stimulus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! stimulus */ "./node_modules/stimulus/index.js");
 /* harmony import */ var stimulus_webpack_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! stimulus/webpack-helpers */ "./node_modules/stimulus/webpack-helpers.js");
-/* harmony import */ var imask__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! imask */ "./node_modules/imask/esm/index.js");
-/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./util */ "./src/js/util/index.js");
-/* harmony import */ var _modules_tabs_tabs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! %modules%/tabs/tabs */ "./src/blocks/tabs/tabs.js");
-/* harmony import */ var typewriter_effect_dist_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! typewriter-effect/dist/core */ "./node_modules/typewriter-effect/dist/core.js");
-/* harmony import */ var typewriter_effect_dist_core__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(typewriter_effect_dist_core__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _util_cloud_animation_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./util/cloud-animation.js */ "./src/js/util/cloud-animation.js");
-/* harmony import */ var _util_map__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./util/map */ "./src/js/util/map.js");
-/* harmony import */ var _blocks_popup_popup__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../blocks/popup/popup */ "./src/blocks/popup/popup.js");
+/* harmony import */ var _modules_promo_promo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! %modules%/promo/promo */ "./src/blocks/promo/promo.js");
+/* harmony import */ var _modules_field_field__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! %modules%/field/field */ "./src/blocks/field/field.js");
+/* harmony import */ var _modules_popup_popup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! %modules%/popup/popup */ "./src/blocks/popup/popup.js");
+/* harmony import */ var _modules_form_form__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! %modules%/form/form */ "./src/blocks/form/form.js");
+/* harmony import */ var _modules_tabs_tabs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! %modules%/tabs/tabs */ "./src/blocks/tabs/tabs.js");
+/* harmony import */ var _modules_scroll_links_scroll_links__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! %modules%/scroll-links/scroll-links */ "./src/blocks/scroll-links/scroll-links.js");
+/* harmony import */ var _modules_animation_animation__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! %modules%/animation/animation */ "./src/blocks/animation/animation.js");
+/* harmony import */ var _modules_map_map__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! %modules%/map/map */ "./src/blocks/map/map.js");
+/* harmony import */ var _modules_video_video__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! %modules%/video/video */ "./src/blocks/video/video.js");
 
 
+ // подсчет до бесконечности
+ // настройка динмаической высоты для textarea, маска телефона, добалвение классо для идетификации пустое или нет при вводе в текстовое поле
+ // инициализация попапов, их открытие и закрытие
+ // валидация и отправка данных через форму
+ // табы
+ // плавный скролл с кнопки до формы рассчета
 
 
-
-
-
-
-
-// import {send} from './util/send-form';
 
 var application = stimulus__WEBPACK_IMPORTED_MODULE_0__["Application"].start();
 var context = __webpack_require__("./src/js/controllers sync recursive \\.js$");
-var WORD_DELAY = 50;
-var infinity = document.querySelector('.promo__accent b');
-var inputs = document.querySelectorAll('.field__input');
-var phones = document.querySelectorAll(".field__input--phone");
-var textareas = document.querySelectorAll('.field__textarea');
-var tabs = document.querySelectorAll(".tabs");
-var phoneOption = {
-  mask: '{+7} (000) 000-00-00',
-  lazy: true
-};
 application.load(Object(stimulus_webpack_helpers__WEBPACK_IMPORTED_MODULE_1__["definitionsFromContext"])(context));
-function fixTextareaSize(textarea) {
-  textarea.style.height = textarea.scrollHeight + 2 + "px";
-}
-function addInfinity() {
-  var _loop = function _loop(i) {
-    setTimeout(function () {
-      if (i === 200) {
-        infinity.innerHTML = '∞';
-        infinity.parentNode.classList.add('promo__accent--big');
-      } else {
-        infinity.innerHTML = i;
-      }
-    }, i * 17);
-  };
-  for (var i = 2; i <= 200; i++) {
-    _loop(i);
-  }
-}
-tabs.forEach(function (item) {
-  return new _modules_tabs_tabs__WEBPACK_IMPORTED_MODULE_4__["default"](item);
-});
-
-// Инициализация маски для телефона
-phones.forEach(function (item) {
-  var mask = Object(imask__WEBPACK_IMPORTED_MODULE_2__["default"])(item, phoneOption);
-  item.addEventListener('focus', function () {
-    mask.updateOptions({
-      lazy: false
-    });
-  }, true);
-  item.addEventListener('blur', function () {
-    mask.updateOptions({
-      lazy: true
-    });
-    if (!mask.masked.rawInputValue) {
-      mask.value = '';
-      item.parentNode.classList.remove('field--no-empty');
-    }
-  }, true);
-});
-inputs.forEach(function (item) {
-  item.addEventListener('input', function () {
-    if (item.value.length > 0) {
-      item.parentNode.classList.add('field--no-empty');
-    } else {
-      console.log('ff');
-      item.parentNode.classList.remove('field--no-empty');
-    }
-  });
-});
-textareas.forEach(function (item) {
-  item.addEventListener('input', function (e) {
-    fixTextareaSize(e.target);
-  });
-  fixTextareaSize(item);
-});
-if (infinity) {
-  addInfinity();
-}
-var stepsButton = document.querySelector(".how-order__button");
-var stepsList = document.querySelector(".steps");
-if (stepsList) {
-  stepsButton.addEventListener("click", function () {
-    stepsList.classList.remove("steps--hidden");
-    stepsButton.style.display = "none";
-  });
-}
-function getCoords(elem) {
-  // кроме IE8-
-  var box = elem.getBoundingClientRect();
-  return {
-    top: box.top + pageYOffset,
-    left: box.left + pageXOffset
-  };
-}
-var about = document.querySelector(".about");
-var cta = document.querySelector(".cta");
-var consultation = document.querySelector(".consultation");
-var chatMessages = document.querySelectorAll(".chat__item");
-var deliveryNumbers = document.querySelectorAll(".page-info__number");
-var isChatAnimate = true;
-window.addEventListener("scroll", function () {
-  if (about) {
-    if (window.pageYOffset >= getCoords(about).top - 150) {
-      if (isChatAnimate) {
-        animateChat();
-      }
-    }
-  }
-  if (cta) {
-    if (window.pageYOffset >= getCoords(cta).top - 150) {
-      cta.classList.add("cta--active");
-    }
-  }
-  if (consultation) {
-    if (window.pageYOffset >= getCoords(consultation).top - 150) {
-      consultation.classList.add("consultation--active");
-    }
-  }
-  if (deliveryNumbers) {
-    deliveryNumbers.forEach(function (it) {
-      if (window.pageYOffset >= getCoords(it).top - 500) {
-        it.classList.add("page-info__number--active");
-      }
-    });
-  }
-});
-function animateChat() {
-  // Массив временных промежутков, за каждый из которых текст полностью печатается в определенном блоке
-  var timerArray = getTimeArray();
-
-  // Объявляем переменную задержки времени между блоками
-  var time;
-  chatMessages.forEach(function (item, index) {
-    var text = item.querySelector(".chat__text");
-    // const time = text.getAttribute(`data-time`);
-
-    // Переопределяем задержку времени для кажого блока в зависимости от итерации
-    timerArray[index] == 0 ? time = 0 : time = time + timerArray[index] + 1100;
-
-    // Отрисовываем текст
-    setTimeout(function () {
-      // Отображаем блок
-      item.classList.add("chat__item--active");
-      setTimeout(function () {
-        writeText(text);
-      }, 300);
-    }, time);
-  });
-  isChatAnimate = false;
-}
-
-/**
- * Автоматический набор текста
-  txt : блок с текстом
-  word : текст из дата атрибута
-  wordArray : разбивает строку текста на отдельные буквы и записывает в массив
- *
- */
-var writeText = function writeText(txt) {
-  var word = txt.getAttribute("data-word");
-  var wordArray = word.split('');
-  var _loop2 = function _loop2(i) {
-    setTimeout(function () {
-      txt.innerHTML = txt.innerHTML + wordArray[i];
-    }, WORD_DELAY * i);
-  };
-  for (var i = 0; i < wordArray.length; i++) {
-    _loop2(i);
-  }
-};
-
-// Получает массив задержек, за сколько отрисовывается КАЖДЫЙ текст в блоке по отдельности, задержку от нулевого индекса приравниваем к 0
-var getTimeArray = function getTimeArray() {
-  var timer = [0];
-  chatMessages.forEach(function (item) {
-    // Находит длину каждого текста и умножает на задержку между буквами
-    var time = item.querySelector(".chat__text").getAttribute("data-word").length * WORD_DELAY;
-    // Пушит новое значение в массив
-    timer.push(time);
-  });
-  return timer;
-};
-document.addEventListener("DOMContentLoaded", function () {
-  var lazyVideos = [].slice.call(document.querySelectorAll("video.lazy"));
-  if ("IntersectionObserver" in window) {
-    var lazyVideoObserver = new IntersectionObserver(function (entries, observer) {
-      entries.forEach(function (video) {
-        if (video.isIntersecting) {
-          for (var source in video.target.children) {
-            var videoSource = video.target.children[source];
-            if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
-              videoSource.src = videoSource.dataset.src;
-            }
-          }
-          video.target.load();
-          video.target.classList.remove("lazy");
-          lazyVideoObserver.unobserve(video.target);
-        }
-      });
-    });
-    lazyVideos.forEach(function (lazyVideo) {
-      lazyVideoObserver.observe(lazyVideo);
-    });
-  }
-});
-
-// ТЕСТ ФОРМ ******************************************************
-
-var popupThanks = document.querySelector(".popup--thanks");
-var ajaxSend = function ajaxSend(url, method, data) {
-  return fetch(url, {
-    method: method,
-    headers: {
-      "X-Requested-With": "XMLHttpRequest"
-    },
-    body: data
-  }).then(function (response) {
-    if (response.status !== 200) {
-      console.log('Looks like there was a problem. Status Code: ' + response.status);
-      return;
-    }
-    console.log('success');
-    return response.json();
-  })["catch"](function (error) {
-    return console.log(error);
-  });
-};
-var formValidate = function formValidate(form) {
-  var fields = form.elements;
-  var result = true;
-  var phoneRegular = /^\d+$/;
-  [].forEach.call(fields, function (el) {
-    var parent = el.parentElement;
-    var label = parent.querySelector('label');
-    // Переопределяем если у элемента отсутствует label (кнопки управления, кастомные селекты)
-    if (!label) {
-      // Проверяем элемент на наличие кнопки отправки
-      if (parent.classList.contains('offers__controls')) {
-        return;
-      }
-      // Переопределяем в кастомном селекте
-      label = parent.closest('.offers__item').querySelector('label');
-    }
-    var tel = el.classList.contains('field__input--phone');
-    var errorMessage = parent.dataset.message;
-    var labelText = label.getAttribute('data-description');
-    if (el.required && el.value.length < 1 || tel && el.value.length < 18 && !phoneRegular.test(el.value) || el.inputMode === 'email' && el.value.length >= 1 && el.value.indexOf("@") < 1) {
-      if (el.value.length < 1) {
-        label.innerHTML = 'Поле должно быть заполнено';
-      } else {
-        label.innerHTML = errorMessage;
-      }
-      parent.classList.add('field--no-empty');
-      parent.classList.add('field--error');
-      setTimeout(function () {
-        parent.classList.remove('field--error');
-        label.innerHTML = labelText;
-        if (el.value.length === 0) {
-          parent.classList.remove('field--no-empty');
-        }
-      }, 2000);
-      result = false;
-    }
-  });
-  return result;
-};
-var send = function send(evt) {
-  evt.preventDefault();
-  var target = evt.target;
-  var formData = new FormData(target);
-  if (formValidate(target)) {
-    ajaxSend(window.global.ajax_url, 'post', formData).then(function (data) {
-      return console.log(data);
-    });
-    target.reset();
-    new _blocks_popup_popup__WEBPACK_IMPORTED_MODULE_8__["PopupThanks"](popupThanks).openPopup();
-  } else {
-    console.log("error");
-  }
-};
-var forms = document.querySelectorAll("form");
-forms.forEach(function (item) {
-  if (!item.classList.contains("offers__form--volume")) {
-    item.addEventListener("submit", function (evt) {
-      send(evt);
-    });
-  }
-});
-
-// ******************************************************************
-
-// Анимация облаков ****************************************************
-var wordsWrappers = document.querySelectorAll(".page-info__item--img");
-if (window.matchMedia("(min-width: 1200px)").matches) {
-  wordsWrappers.forEach(function (it) {
-    Object(_util_cloud_animation_js__WEBPACK_IMPORTED_MODULE_6__["cloudAnimation"])(it);
-  });
-}
-// *******************************************************************
-
-var mapBox = document.querySelector("#map");
-if (mapBox) {
-  Object(_util_map__WEBPACK_IMPORTED_MODULE_7__["map"])();
-}
-var popups = document.querySelectorAll(".popup");
-popups.forEach(function (it) {
-  new _blocks_popup_popup__WEBPACK_IMPORTED_MODULE_8__["Popup"](it);
-});
+Object(_modules_promo_promo__WEBPACK_IMPORTED_MODULE_2__["default"])();
+Object(_modules_field_field__WEBPACK_IMPORTED_MODULE_3__["default"])();
+Object(_modules_popup_popup__WEBPACK_IMPORTED_MODULE_4__["popup"])();
+Object(_modules_form_form__WEBPACK_IMPORTED_MODULE_5__["default"])();
+Object(_modules_tabs_tabs__WEBPACK_IMPORTED_MODULE_6__["default"])();
+Object(_modules_scroll_links_scroll_links__WEBPACK_IMPORTED_MODULE_7__["default"])();
+Object(_modules_animation_animation__WEBPACK_IMPORTED_MODULE_8__["default"])();
+Object(_modules_map_map__WEBPACK_IMPORTED_MODULE_9__["default"])();
+Object(_modules_video_video__WEBPACK_IMPORTED_MODULE_10__["default"])();
 
 /***/ }),
 
@@ -1789,57 +1994,6 @@ var cloudAnimation = function cloudAnimation(it) {
     it.addEventListener('mouseleave', mouseLeaveHandler);
   });
 };
-
-/***/ }),
-
-/***/ "./src/js/util/debounce.js":
-/*!*********************************!*\
-  !*** ./src/js/util/debounce.js ***!
-  \*********************************/
-/*! exports provided: debounce */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "debounce", function() { return debounce; });
-function debounce(func, wait, immediate) {
-  var timeout;
-  return function () {
-    var context = this,
-      args = arguments;
-    var later = function later() {
-      timeout = null;
-      if (!immediate) func.apply(context, args);
-    };
-    var callNow = immediate && !timeout;
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-    if (callNow) func.apply(context, args);
-  };
-}
-;
-
-/***/ }),
-
-/***/ "./src/js/util/index.js":
-/*!******************************!*\
-  !*** ./src/js/util/index.js ***!
-  \******************************/
-/*! exports provided: $, $$, debounce */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _query__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./query */ "./src/js/util/query.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "$", function() { return _query__WEBPACK_IMPORTED_MODULE_0__["$"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "$$", function() { return _query__WEBPACK_IMPORTED_MODULE_0__["$$"]; });
-
-/* harmony import */ var _debounce__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./debounce */ "./src/js/util/debounce.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "debounce", function() { return _debounce__WEBPACK_IMPORTED_MODULE_1__["debounce"]; });
-
-
-
 
 /***/ }),
 
@@ -2030,28 +2184,6 @@ var map = function map() {
     });
   }
 };
-
-/***/ }),
-
-/***/ "./src/js/util/query.js":
-/*!******************************!*\
-  !*** ./src/js/util/query.js ***!
-  \******************************/
-/*! exports provided: $, $$ */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "$", function() { return $; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "$$", function() { return $$; });
-function $(selector) {
-  var scope = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document;
-  return scope.querySelector(selector);
-}
-function $$(selector) {
-  var scope = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document;
-  return Array.from(scope.querySelectorAll(selector));
-}
 
 /***/ })
 

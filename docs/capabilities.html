@@ -174,7 +174,7 @@
       <p>
         <a class="menu-inside__link" href="http://capitals-wordpress.local:8888/test-page/">Рассчет стоимости</a>
         <svg width="6" height="11" data-target="menu.trigger">
-          <use xlink:href="http://capitals-wordpress.local:8888/app/themes/Capitals/resources/assets/img/sprites/sprite.svg#icon__arrow"></use>
+          <use xlink:href="img/sprites/sprite.svg#icon__arrow"></use>
         </svg>
       </p>
       <ul class="menu-inside__sub-list">
@@ -185,7 +185,8 @@
           <a class="menu-inside__sub-link" href="http://capitals-wordpress.local:8888/sample-page/">Расчет стоимости</a>
         </li>
         <li class="menu-inside__sub-item">
-          <a class="menu-inside__sub-link" href="http://capitals-wordpress.local:8888/sample-page/">Расчет стоимости Расчет стоимости Расчет стоимости Расчет стоимости</a>
+          <a class="menu-inside__sub-link" href="http://capitals-wordpress.local:8888/sample-page/">Расчет стоимости
+            Расчет стоимости Расчет стоимости Расчет стоимости</a>
         </li>
         <li class="menu-inside__sub-item">
           <a class="menu-inside__sub-link" href="http://capitals-wordpress.local:8888/sample-page/">Расчет стоимости</a>
@@ -196,7 +197,7 @@
       <p>
         <a class="menu-inside__link" href="http://capitals-wordpress.local:8888/test-page/">Навигация</a>
         <svg width="6" height="11" data-target="menu.trigger">
-          <use xlink:href="http://capitals-wordpress.local:8888/app/themes/Capitals/resources/assets/img/sprites/sprite.svg#icon__arrow"></use>
+          <use xlink:href="img/sprites/sprite.svg#icon__arrow"></use>
         </svg>
       </p>
     </li>
@@ -204,7 +205,7 @@
       <p>
         <a class="menu-inside__link" href="http://capitals-wordpress.local:8888/test-page/">Навигация</a>
         <svg width="6" height="11" data-target="menu.trigger">
-          <use xlink:href="http://capitals-wordpress.local:8888/app/themes/Capitals/resources/assets/img/sprites/sprite.svg#icon__arrow"></use>
+          <use xlink:href="img/sprites/sprite.svg#icon__arrow"></use>
         </svg>
       </p>
     </li>
@@ -212,13 +213,12 @@
       <p>
         <a class="menu-inside__link" href="http://capitals-wordpress.local:8888/test-page/">Навигация</a>
         <svg width="6" height="11" data-target="menu.trigger">
-          <use xlink:href="http://capitals-wordpress.local:8888/app/themes/Capitals/resources/assets/img/sprites/sprite.svg#icon__arrow"></use>
+          <use xlink:href="img/sprites/sprite.svg#icon__arrow"></use>
         </svg>
       </p>
     </li>
   </ul>
 </div>
-
   <div class="header__right header-inside__right" data-controller="language">
     <div class="header__contacts header__contacts--inside">
       <a href="#" class="header__phone header-inside__phone">
@@ -486,27 +486,28 @@
         </svg>
       </button>
       <p class="popup__title">Оставьте заявку </p>
-      <form data-controller="send-form" data-action="submit->send-form#send" action="post" class="popup__form">
+      <form action="post" class="popup__form">
+        <input type="hidden" name="formtype" value="Оставьте заявку">
         <div class="popup__group">
-        <div class="popup__field field field--light" data-message="Введено некорректное имя">
-          <input required autocomplete="off" type="text" name="weight" id="t2" class="field__input">
-          <label data-description="Ваше имя" for="t2" class="field__label">Ваше имя</label>
-        </div>
-        <div class="popup__field field field--light" data-message="Введен некорректный номер">
-          <input autocomplete="off" type="text" inputmode="tel" name="weight" id="t4" class="field__input field__input--phone">
-          <label data-description="Ваш телефон" for="t4" class="field__label">Ваш телефон</label>
-        </div>
-        <div class="popup__field field field--light" data-message="Введена некорректная почта">
-          <input autocomplete="off" inputmode="email" type="text" name="weight" id="t5" class="field__input">
-          <label data-description="Ваша почта" for="t5" class="field__label">Ваша почта</label>
-        </div>
+          <div class="popup__field field field--light" data-message="Введено некорректное имя">
+            <input required autocomplete="off" type="text" name="username" id="t2" class="field__input">
+            <label data-description="Ваше имя" for="t2" class="field__label">Ваше имя</label>
+          </div>
+          <div class="popup__field field field--light" data-message="Введен некорректный номер">
+            <input autocomplete="off" type="text" inputmode="tel" name="phone" id="t4"
+              class="field__input field__input--phone">
+            <label data-description="Ваш телефон" for="t4" class="field__label">Ваш телефон</label>
+          </div>
+          <div class="popup__field field field--light" data-message="Введена некорректная почта">
+            <input autocomplete="off" inputmode="email" type="text" name="email" id="t5" class="field__input">
+            <label data-description="Ваша почта" for="t5" class="field__label">Ваша почта</label>
+          </div>
         </div>
         <button type="submit" class="popup__button button">Оставить заявку</button>
       </form>
     </div>
   </div>
 </div>
-
 <script src="js/vendor.js"></script>
 <script src="js/general.js"></script>
 </body>

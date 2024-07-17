@@ -285,44 +285,43 @@
   <p class="information__text">Все грузы попадают в РФ абсолютно легально, проходя растаможку. Помните, что правильное описание - залог сохранности груза и ваша страховка от конфискации таможенными органами</p>
 </section>
 
-  <section class="offers">
+  <section class="offers" id="offers">
   <div class="offers__top">
-    <h2 class="offers__title title title--light"><span>Предложим </span>оптимальное решение</h2>
+    <h2 class="offers__title title title--light"><span>Предложим</span>оптимальное решение</h2>
     <p class="offers__info info info--light">
-      <img class="info__img" src="img/time.svg" >
+      <img class="info__img" src="img/time.svg">
       Сделаем расчет за 30 минут
     </p>
   </div>
   <div class="offers__body">
     <div class="offers__inner">
       <form action="" class="offers__form">
-        <h3 class="offers__subtitle">Расчет стоимости доставки из сша</h3>
+        <input type="hidden" name="formtype" value="Расчет стоимости доставки из США">
+        <h3 class="offers__subtitle">Расчет стоимости доставки из США</h3>
         <div class="offers__group">
-          <div class="offers__item select" data-controller="select">
-            <label data-description="Тип груза" for="t1" class="select__label">Тип груза</label>
-            <select name="type" id="t1" class="select__input" data-target="select.input">
-              <option value="Тип груза">Тип груза</option>
-              <option value="Опасный">Опасный</option>
-            </select>
+          <div class="offers__item field">
+            <input autocomplete="off" type="text" name="cargo_type" id="t1" class="field__input">
+            <label data-description="Тип груза" for="t1" class="field__label">Тип груза</label>
           </div>
           <div class="offers__item field">
-            <input autocomplete="off" type="text" name="weight" id="t2" class="field__input">
+            <input autocomplete="off" type="text" name="cargo_weight" id="t2" class="field__input">
             <label data-description="Вес груза" for="t2" class="field__label">Вес груза</label>
           </div>
           <div class="offers__item field">
-            <input autocomplete="off" type="text" name="weight" id="t3" class="field__input">
+            <input autocomplete="off" type="text" name="username" id="t3" class="field__input">
             <label data-description="Ваше имя" for="t3" class="field__label">Ваше имя</label>
           </div>
           <div class="offers__item field">
-            <input autocomplete="off" type="text" inputmode="tel" name="weight" id="t4" class="field__input field__input--phone">
+            <input autocomplete="off" type="text" inputmode="tel" name="phone" id="t4"
+              class="field__input field__input--phone">
             <label data-description="Ваш телефон" for="t4" class="field__label">Ваш телефон</label>
           </div>
           <div class="offers__item field">
-            <input autocomplete="off" type="email" name="weight" id="t5" class="field__input">
+            <input autocomplete="off" type="email" name="email" id="t5" class="field__input">
             <label data-description="Ваша почта" for="t5" class="field__label">Ваша почта</label>
           </div>
           <div class="offers__item field">
-            <textarea autocomplete="off" name="weight" id="t6" class="field__input field__textarea"></textarea>
+            <textarea autocomplete="off" name="message" id="t6" class="field__input field__textarea"></textarea>
             <label data-description="Комментарий по заказу" for="t6" class="field__label">Комментарий по заказу</label>
           </div>
         </div>
@@ -335,7 +334,7 @@
             </p>
           </div>
           <div class="offers__controls">
-            <button type="submit" class="offers__button button">Рассчитать стоимость</button>
+            <button type="submit" class="offers__button button">Оставить заявку</button>
             <p class="offers__desc">С расчетом вы получите консультацию под кнопку рассчитать стоимость</p>
           </div>
         </div>
@@ -343,7 +342,6 @@
     </div>
   </div>
 </section>
-
   <section class="about" data-controller="slider-about">
   <div class="about__inner">
     <div class="about__chat chat chat--active">
@@ -358,7 +356,7 @@
         <li class="chat__item">
           <div class="chat__top">
             <span class="chat__name">Виктор</span>
-            <span  class="chat__time">16:31</span>
+            <span class="chat__time">16:31</span>
           </div>
           <div data-word="Ок!" data-time="3000" class="chat__text"></div>
         </li>
@@ -367,7 +365,8 @@
             <span class="chat__name">Capitals Logistics</span>
             <span class="chat__time">20:04</span>
           </div>
-          <div data-time="2000" data-word="Виктор, Ваш груз прошёл границу раньше, через час ожидайте на складе" class="chat__text"></div>
+          <div data-time="2000" data-word="Виктор, Ваш груз прошёл границу раньше, через час ожидайте на складе"
+            class="chat__text"></div>
         </li>
         <li class="chat__item">
           <div class="chat__top">
@@ -388,13 +387,15 @@
             <span class="about__action">Просто</span>
             <img src="img/binoculars.svg" alt="" class="about__icon">
             <p class="about__name">Следим за грузом и решаем все проблемы без вашего участия</p>
-            <p class="about__text">К вашему проекту будет закреплен персональный менеджер или команда, которая решает все воросы в пути, не беспокоя вас, вам требуется уделять 2-3 минуты в день, чтобы просмотреть отчет</p>
+            <p class="about__text">К вашему проекту будет закреплен персональный менеджер или команда, которая решает
+              все воросы в пути, не беспокоя вас, вам требуется уделять 2-3 минуты в день, чтобы просмотреть отчет</p>
           </li>
           <li class="about__item swiper-slide">
             <span class="about__action">Быстро</span>
             <img src="img/world.svg" alt="" class="about__icon">
             <p class="about__name">Без задержек, с гарантией сохранности</p>
-            <p class="about__text">Расчёт стоимости за 10 минут, подача нужного транспорта в день заказа, за каждую минуту просрочки платим штраф</p>
+            <p class="about__text">Расчёт стоимости за 10 минут, подача нужного транспорта в день заказа, за каждую
+              минуту просрочки платим штраф</p>
           </li>
           <li class="about__item swiper-slide">
             <span class="about__action">Приятно</span>
@@ -419,7 +420,6 @@
     </div>
   </div>
 </section>
-
   <section class="cta">
   <div class="cta__content">
     <h2 class="cta__title">Что бы перевезти груз, вам потребуется только <b>1 действие и 2-3 минуты в день</b></h2>
@@ -788,27 +788,28 @@
         </svg>
       </button>
       <p class="popup__title">Оставьте заявку </p>
-      <form data-controller="send-form" data-action="submit->send-form#send" action="post" class="popup__form">
+      <form action="post" class="popup__form">
+        <input type="hidden" name="formtype" value="Оставьте заявку">
         <div class="popup__group">
-        <div class="popup__field field field--light" data-message="Введено некорректное имя">
-          <input required autocomplete="off" type="text" name="weight" id="t2" class="field__input">
-          <label data-description="Ваше имя" for="t2" class="field__label">Ваше имя</label>
-        </div>
-        <div class="popup__field field field--light" data-message="Введен некорректный номер">
-          <input autocomplete="off" type="text" inputmode="tel" name="weight" id="t4" class="field__input field__input--phone">
-          <label data-description="Ваш телефон" for="t4" class="field__label">Ваш телефон</label>
-        </div>
-        <div class="popup__field field field--light" data-message="Введена некорректная почта">
-          <input autocomplete="off" inputmode="email" type="text" name="weight" id="t5" class="field__input">
-          <label data-description="Ваша почта" for="t5" class="field__label">Ваша почта</label>
-        </div>
+          <div class="popup__field field field--light" data-message="Введено некорректное имя">
+            <input required autocomplete="off" type="text" name="username" id="t2" class="field__input">
+            <label data-description="Ваше имя" for="t2" class="field__label">Ваше имя</label>
+          </div>
+          <div class="popup__field field field--light" data-message="Введен некорректный номер">
+            <input autocomplete="off" type="text" inputmode="tel" name="phone" id="t4"
+              class="field__input field__input--phone">
+            <label data-description="Ваш телефон" for="t4" class="field__label">Ваш телефон</label>
+          </div>
+          <div class="popup__field field field--light" data-message="Введена некорректная почта">
+            <input autocomplete="off" inputmode="email" type="text" name="email" id="t5" class="field__input">
+            <label data-description="Ваша почта" for="t5" class="field__label">Ваша почта</label>
+          </div>
         </div>
         <button type="submit" class="popup__button button">Оставить заявку</button>
       </form>
     </div>
   </div>
 </div>
-
 <script src="js/vendor.js"></script>
 <script src="js/general.js"></script>
 </body>

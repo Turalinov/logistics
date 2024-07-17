@@ -27,7 +27,7 @@ class Popup {
     }
 
     document.body.addEventListener('click', (e) => {
-      if(e.target.classList.contains('popup__wrapper')){
+      if (e.target.classList.contains('popup__wrapper')) {
         this.hidePopup();
       }
     });
@@ -37,7 +37,7 @@ class Popup {
     });
 
     window.addEventListener('keydown', (e) => {
-      if(e.keyCode === 27){
+      if (e.keyCode === 27) {
         this.hidePopup();
       }
     });
@@ -45,7 +45,7 @@ class Popup {
 
   openPopup() {
     let prevPopup = document.querySelector('.popup.opened');
-    if(prevPopup) {
+    if (prevPopup) {
       prevPopup.classList.remove('opened');
     }
     this.popup.classList.add('opened');
@@ -81,4 +81,17 @@ class PopupThanks extends Popup {
 }
 
 
-export {Popup, PopupThanks};
+function popup() {
+  const popups = document.querySelectorAll(`.popup`);
+
+  if (popups) {
+    console.log('popups.js');
+    popups.forEach(it => {
+      new Popup(it)
+    })
+  }
+}
+
+
+
+export { PopupThanks, popup };

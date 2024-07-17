@@ -3,10 +3,10 @@ import NativejsSelect from 'nativejs-select';
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-  static targets = [ "input" ]
+  static targets = ["input"]
 
   connect() {
-    this.init();
+    // this.init();
   }
 
   init() {
