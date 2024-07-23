@@ -1134,6 +1134,15 @@ a {
       background-image: url("../img/dropdown@dark.svg"); }
   .header--light .menu__burger svg {
     fill: #ef4932; }
+    .header--light .menu__burger svg line {
+      stroke: #ef4932; }
+  .header--light .menu__wrapper {
+    background: #e1e1e1; }
+    .header--light .menu__wrapper a {
+      color: #000000; }
+  .header--light .menu__list--main p::after,
+  .header--light .menu__list--main p::before {
+    background-color: #000000; }
 
 .header__right {
   display: none;

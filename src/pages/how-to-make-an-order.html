@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru">
 
-<head>
-  <meta charset="UTF-8">
-  <title>Capitals Logistic</title>
-  @@include('../blocks/favicon/favicon.html')
-  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0">
-  <link rel="stylesheet" href="css/main.css">
-</head>
+@@include('../blocks/head/head.html', {
+"title": 'Как сделать заказ',
+"description": 'Описание',
+})
 
 <body>
   @@include('../blocks/header-inside/header-inside.html')
@@ -81,7 +78,7 @@
         <article class="how-order__place">
           <h2 class="visually-hidden">Рекламный баннер</h2>
           <img src="../img/how-order-img.jpg" alt="">
-          <button class="button  button--thin">Помочь сделать заказ</button>
+          <button class="button  button--thin get-popup" data-popup="popup">Помочь сделать заказ</button>
         </article>
       </div>
     </section>

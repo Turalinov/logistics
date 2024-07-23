@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
-  <title>Capitals Logistic</title>
+  <title>Разовые посылки</title>
+  <meta name="description" content="Описание" />
   <link rel="apple-touch-icon" sizes="57x57" href="img/favicons/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="img/favicons/apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-icon-72x72.png">
@@ -22,11 +24,13 @@
 <meta name="theme-color" content="#ffffff">
   <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0">
   <link rel="stylesheet" href="css/main.css">
+
 </head>
+
 <body>
-<header class="header">
-  <a href="#" class="header__logo logo">
-    <img src="img/logo.svg" alt="logo">
+  <header class="header header--light">
+  <a href="index.html" class="header__logo logo">
+    <img src="img/logo@dark.svg" alt="logo">
   </a>
   <nav class="header__menu menu" data-controller="menu">
     <button class="menu__burger" data-target="menu.link" data-action="click->menu#toggle">
@@ -45,9 +49,9 @@
       <a href="#">Доставка</a>
     </p>
     <ul class="menu__sub-list">
-      <li class="menu__sub-item"><a href="#">Самолётом из США</a></li>
-      <li class="menu__sub-item"><a href="#">Морем из США</a></li>
-      <li class="menu__sub-item"><a href="#">Пикапы из США</a></li>
+      <li class="menu__sub-item"><a href="by-plane-from-the-usa.html">Самолётом из США</a></li>
+      <li class="menu__sub-item"><a href="by-sea-from-the-usa.html">Морем из США</a></li>
+      <li class="menu__sub-item"><a href="pickups-from-the-usa.html">Пикапы из США</a></li>
     </ul>
   </li>
   <li class="menu__item menu__item--parent">
@@ -55,18 +59,16 @@
       <a href="#">Возим товары</a>
     </p>
     <ul class="menu__sub-list">
-      <li class="menu__sub-item"><a href="#">Запчасти и оборудование</a></li>
-      <li class="menu__sub-item"><a href="#">Детские игрушки</a></li>
-      <li class="menu__sub-item"><a href="#">Спортивное питание</a></li>
-      <li class="menu__sub-item"><a href="#">Доставка
-          самолётом</a></li>
-      <li class="menu__sub-item"><a href="#">Косметика и парфюмерия</a></li>
-      <li class="menu__sub-item"><a href="#">Сервера, IT комплектующие</a></li>
-      <li class="menu__sub-item"><a href="#">Одежда, обувь, текстиль</a></li>
-      <li class="menu__sub-item"><a href="#">Мебель, сантехника, интерьер</a></li>
-      <li class="menu__sub-item"><a href="#">Разовые посылки</a></li>
-      <li class="menu__sub-item"><a href="#">Товары из интернет-магазинов</a></li>
-      <li class="menu__sub-item"><a href="#">Спецпредложение для байеров</a></li>
+      <li class="menu__sub-item"><a href="spare-parts-and-equipment.html">Запчасти и оборудование</a></li>
+      <li class="menu__sub-item"><a href="kids-toys.html">Детские игрушки</a></li>
+      <li class="menu__sub-item"><a href="sports-nutrition.html">Спортивное питание</a></li>
+      <li class="menu__sub-item"><a href="cosmetics-and-perfumes.html">Косметика и парфюмерия</a></li>
+      <li class="menu__sub-item"><a href="servers-it-components.html">Сервера, IT комплектующие</a></li>
+      <li class="menu__sub-item"><a href="clothing-shoes-textiles.html">Одежда, обувь, текстиль</a></li>
+      <li class="menu__sub-item"><a href="furniture-plumbing-interior.html">Мебель, сантехника, интерьер</a></li>
+      <li class="menu__sub-item"><a href="one-time-parcels.html">Разовые посылки</a></li>
+      <li class="menu__sub-item"><a href="products-from-online-stores.html">Товары из интернет-магазинов</a></li>
+      <li class="menu__sub-item"><a href="special-offer-for-buyers.html">Спецпредложение для байеров</a></li>
     </ul>
   </li>
   <li class="menu__item menu__item--parent">
@@ -74,10 +76,10 @@
       <a href="#">Полезное</a>
     </p>
     <ul class="menu__sub-list">
-      <li class="menu__sub-item"><a href="#">Как сделать заказ</a></li>
-      <li class="menu__sub-item"><a href="#">Как сделать описание</a></li>
-      <li class="menu__sub-item"><a href="#">Сроки доставки</a></li>
-      <li class="menu__sub-item"><a href="#">Выкуп и подбор товара</a></li>
+      <li class="menu__sub-item"><a href="how-to-make-an-order.html">Как сделать заказ</a></li>
+      <!-- <li class="menu__sub-item"><a href="how-to-write-a-description.html">Как сделать описание</a></li> -->
+      <!-- <li class="menu__sub-item"><a href="delivery-terms.html">Сроки доставки</a></li> -->
+      <li class="menu__sub-item"><a href="purchase-and-selection-of-goods.html">Выкуп и подбор товара</a></li>
       <li class="menu__sub-item"><a href="#">Возможности склада</a></li>
       <li class="menu__sub-item"><a href="#">Гарантии сохранности товара</a></li>
       <li class="menu__sub-item"><a href="#">Расчёт объёмного груза</a></li>
@@ -110,7 +112,7 @@
   </nav>
   <div class="header__right" data-controller="language">
     <div class="header__contacts">
-      <a href="#" class="header__phone">
+      <a href="tel:78003604577" class="header__phone">
         <svg>
           <use xlink:href="img/sprites/sprite.svg#icon-phone"></use>
         </svg>
@@ -128,19 +130,20 @@
     </ul>
   </div>
 </header>
-<main>
-  <section class="hero">
+  <main>
+    <section class="hero hero--light" data-controller="hero">
   <div class="hero__tabs tabs" data-tabs>
     <div class="hero__wrapper">
-      <div class="tabs__content" data-content="1">
+      <div class="tabs__content " data-content="1">
         <div class="hero__body">
           <picture>
-            <source media="(min-width: 768px)" srcset="img/hero-sea@desktop.jpg">
-            <img src="img/hero-sea@mobile.jpg" class="hero__img" alt="">
+            <source media="(min-width: 768px)" srcset="img/hero-0@desktop.jpg">
+            <img src="img/hero-0@mobile.jpg" class="hero__img" alt="">
           </picture>
           <div class="hero__content">
-            <h2 class="hero__name">Доставка по морю</h2>
-            <p class="hero__description">в самые сжатые сроки c финансовой гарантией избавим от головной боли с таможней, сертификацией, страховкой, с ACCOM вы всегда в выигрыше </p>
+            <h2 class="hero__name">Запчасти оборудование</h2>
+            <p class="hero__description">в самые сжатые сроки c финансовой гарантией избавим от головной боли с
+              таможней, сертификацией, страховкой, с ACCOM вы всегда в выигрыше </p>
             <div class="hero__row">
               <a href="" class="hero__button button">Рассчитать стоимость</a>
               <p class="hero__text">Мы также доставляем одиночные посылки</p>
@@ -151,12 +154,13 @@
       <div class="tabs__content tabs__content--active" data-content="2">
         <div class="hero__body">
           <picture>
-            <source media="(min-width: 768px)" srcset="img/hero-aribus@desktop.jpg">
-            <img src="img/hero-airbus@mobile.jpg" class="hero__img" alt="">
+            <source media="(min-width: 768px)" srcset="img/hero-1@desktop.jpg">
+            <img src="img/hero-1@mobile.jpg" class="hero__img" alt="">
           </picture>
           <div class="hero__content">
-            <h2 class="hero__name">Доставка самолётом</h2>
-            <p class="hero__description">в самые сжатые сроки c финансовой гарантией избавим от головной боли с таможней, сертификацией, страховкой, с ACCOM вы всегда в выигрыше </p>
+            <h2 class="hero__name">Детские игрушки</h2>
+            <p class="hero__description">в самые сжатые сроки c финансовой гарантией избавим от головной боли с
+              таможней, сертификацией, страховкой, с ACCOM вы всегда в выигрыше </p>
             <div class="hero__row">
               <a href="" class="hero__button button">Рассчитать стоимость</a>
               <p class="hero__text">Мы также доставляем одиночные посылки</p>
@@ -167,12 +171,132 @@
       <div class="tabs__content" data-content="3">
         <div class="hero__body">
           <picture>
-            <source media="(min-width: 768px)" srcset="img/hero-car@desktop.jpg">
-            <img src="img/hero-car@mobile.jpg" class="hero__img" alt="">
+            <source media="(min-width: 768px)" srcset="img/hero-2@desktop.jpg">
+            <img src="img/hero-2@mobile.jpg" class="hero__img" alt="">
           </picture>
           <div class="hero__content">
-            <h2 class="hero__name">Доставка пикопом </h2>
-            <p class="hero__description">в самые сжатые сроки c финансовой гарантией избавим от головной боли с таможней, сертификацией, страховкой, с ACCOM вы всегда в выигрыше </p>
+            <h2 class="hero__name">Спортивное питание</h2>
+            <p class="hero__description">в самые сжатые сроки c финансовой гарантией избавим от головной боли с
+              таможней, сертификацией, страховкой, с ACCOM вы всегда в выигрыше </p>
+            <div class="hero__row">
+              <a href="" class="hero__button button">Рассчитать стоимость</a>
+              <p class="hero__text">Мы также доставляем одиночные посылки</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tabs__content" data-content="4">
+        <div class="hero__body">
+          <picture>
+            <source media="(min-width: 768px)" srcset="img/hero-3@desktop.jpg">
+            <img src="img/hero-3@mobile.svg" class="hero__img" alt="">
+          </picture>
+          <div class="hero__content">
+            <h2 class="hero__name">Косметика и парфюмерия</h2>
+            <p class="hero__description">в самые сжатые сроки c финансовой гарантией избавим от головной боли с
+              таможней, сертификацией, страховкой, с ACCOM вы всегда в выигрыше </p>
+            <div class="hero__row">
+              <a href="" class="hero__button button">Рассчитать стоимость</a>
+              <p class="hero__text">Мы также доставляем одиночные посылки</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tabs__content" data-content="5">
+        <div class="hero__body">
+          <picture>
+            <source media="(min-width: 768px)" srcset="img/hero-4@desktop.jpg">
+            <img src="img/hero-4@mobile.jpg" class="hero__img" alt="">
+          </picture>
+          <div class="hero__content">
+            <h2 class="hero__name">Сервера, IT комплектующие</h2>
+            <p class="hero__description">в самые сжатые сроки c финансовой гарантией избавим от головной боли с
+              таможней, сертификацией, страховкой, с ACCOM вы всегда в выигрыше </p>
+            <div class="hero__row">
+              <a href="" class="hero__button button">Рассчитать стоимость</a>
+              <p class="hero__text">Мы также доставляем одиночные посылки</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tabs__content" data-content="6">
+        <div class="hero__body">
+          <picture>
+            <source media="(min-width: 768px)" srcset="img/hero-5@desktop.jpg">
+            <img src="img/hero-5@mobile.jpg" class="hero__img" alt="">
+          </picture>
+          <div class="hero__content">
+            <h2 class="hero__name">Одежда, обувь, текстиль</h2>
+            <p class="hero__description">в самые сжатые сроки c финансовой гарантией избавим от головной боли с
+              таможней, сертификацией, страховкой, с ACCOM вы всегда в выигрыше </p>
+            <div class="hero__row">
+              <a href="" class="hero__button button">Рассчитать стоимость</a>
+              <p class="hero__text">Мы также доставляем одиночные посылки</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tabs__content" data-content="7">
+        <div class="hero__body">
+          <picture>
+            <source media="(min-width: 768px)" srcset="img/hero-6@desktop.jpg">
+            <img src="img/hero-6@mobile.jpg" class="hero__img" alt="">
+          </picture>
+          <div class="hero__content">
+            <h2 class="hero__name">Товары из интернет магазинов</h2>
+            <p class="hero__description">в самые сжатые сроки c финансовой гарантией избавим от головной боли с
+              таможней, сертификацией, страховкой, с ACCOM вы всегда в выигрыше </p>
+            <div class="hero__row">
+              <a href="" class="hero__button button">Рассчитать стоимость</a>
+              <p class="hero__text">Мы также доставляем одиночные посылки</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tabs__content" data-content="8">
+        <div class="hero__body">
+          <picture>
+            <source media="(min-width: 768px)" srcset="img/hero-7@desktop.jpg">
+            <img src="img/hero-7@mobile.jpg" class="hero__img" alt="">
+          </picture>
+          <div class="hero__content">
+            <h2 class="hero__name">Мебель, сантехника, интерьер</h2>
+            <p class="hero__description">в самые сжатые сроки c финансовой гарантией избавим от головной боли с
+              таможней, сертификацией, страховкой, с ACCOM вы всегда в выигрыше </p>
+            <div class="hero__row">
+              <a href="" class="hero__button button">Рассчитать стоимость</a>
+              <p class="hero__text">Мы также доставляем одиночные посылки</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tabs__content" data-content="9">
+        <div class="hero__body">
+          <picture>
+            <source media="(min-width: 768px)" srcset="img/hero-9@desktop.jpg">
+            <img src="img/hero-9@mobile.jpg" class="hero__img" alt="">
+          </picture>
+          <div class="hero__content">
+            <h2 class="hero__name">Разовые посылки</h2>
+            <p class="hero__description">в самые сжатые сроки c финансовой гарантией избавим от головной боли с
+              таможней, сертификацией, страховкой, с ACCOM вы всегда в выигрыше </p>
+            <div class="hero__row">
+              <a href="" class="hero__button button">Рассчитать стоимость</a>
+              <p class="hero__text">Мы также доставляем одиночные посылки</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tabs__content" data-content="10">
+        <div class="hero__body">
+          <picture>
+            <source media="(min-width: 768px)" srcset="img/hero-10@desktop.jpg">
+            <img src="img/hero-10@mobile.jpg" class="hero__img" alt="">
+          </picture>
+          <div class="hero__content">
+            <h2 class="hero__name">Спецпредложение для байеров</h2>
+            <p class="hero__description">в самые сжатые сроки c финансовой гарантией избавим от головной боли с
+              таможней, сертификацией, страховкой, с ACCOM вы всегда в выигрыше </p>
             <div class="hero__row">
               <a href="" class="hero__button button">Рассчитать стоимость</a>
               <p class="hero__text">Мы также доставляем одиночные посылки</p>
@@ -181,15 +305,36 @@
         </div>
       </div>
     </div>
-    <ul class="hero__list tabs__list">
-      <li class="tabs__item " data-tab="1">Доставка по морю</li>
-      <li class="tabs__item tabs__item--active" data-tab="2">Доставка самолётом</li>
-      <li class="tabs__item " data-tab="3">Доставка пикапом</li>
-    </ul>
+    <div class="swiper-container" data-target="hero.container">
+      <ul class="hero__list tabs__list swiper-wrapper">
+        <li class="tabs__item swiper-slide" data-tab="1">Запчасти, оборудование</li>
+        <li class="tabs__item swiper-slide tabs__item--active" data-tab="2">Игрушки</li>
+        <li class="tabs__item swiper-slide" data-tab="3">Спортивное питание</li>
+        <li class="tabs__item swiper-slide" data-tab="4">Косметика и парфюмерия</li>
+        <li class="tabs__item swiper-slide" data-tab="5">Сервера, IT комплектующие</li>
+        <li class="tabs__item swiper-slide" data-tab="6">Одежда, обувь, текстиль</li>
+        <li class="tabs__item swiper-slide" data-tab="7">Товары из интернет магазинов</li>
+        <li class="tabs__item swiper-slide" data-tab="8">Мебель, сантехника, интерьер</li>
+        <li class="tabs__item swiper-slide" data-tab="9">Разовые посылки</li>
+        <li class="tabs__item swiper-slide" data-tab="10">Спецпредложение для байеров</li>
+      </ul>
+
+    </div>
+    <div class="hero__controls controls">
+      <button class="controls__button" data-target="hero.prev">
+        <svg>
+          <use xlink:href="img/sprites/sprite.svg#icon-arrow-left"></use>
+        </svg>
+      </button>
+      <button class="controls__button" data-target="hero.next">
+        <svg>
+          <use xlink:href="img/sprites/sprite.svg#icon-arrow-right"></use>
+        </svg>
+      </button>
+    </div>
   </div>
 </section>
-
-  <section class="deadlines">
+    <section class="deadlines">
   <div class="deadlines__days">
     <p class="deadlines__day"><span>14</span>-<span>16</span></p>
     <span class="deadlines__label">дней</span>
@@ -203,18 +348,23 @@
   </div>
 </section>
 
-  <div class="section text-block">
-    <div class="text-block__row">
-      <div class="text-block__content">
-        <h2>Lorem ipsum dolor.</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolorem ea eligendi numquam officiis quaerat veritatis. Autem quaerat veritatis vero.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolorem ea eligendi numquam officiis quaerat veritatis. Autem quaerat veritatis vero.</p>
-        <h2>Lorem ipsum dolor.</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab aspernatur beatae consequatur cumque dicta eaque eum ex iure iusto laudantium molestias nemo, omnis placeat praesentium quae unde veniam voluptates!</p>
-      </div>
+    <div class="section text-block">
+  <div class="text-block__row">
+    <img src="img/frame__map.png" alt="" class="text-block__img">
+    <div class="text-block__content">
+      <h2>Lorem ipsum dolor.</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolorem ea eligendi numquam officiis
+        quaerat veritatis. Autem quaerat veritatis vero.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolorem ea eligendi numquam officiis
+        quaerat veritatis. Autem quaerat veritatis vero.</p>
+      <h2>Lorem ipsum dolor.</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab aspernatur beatae consequatur cumque dicta
+        eaque eum ex iure iusto laudantium molestias nemo, omnis placeat praesentium quae unde veniam voluptates!
+      </p>
     </div>
   </div>
-  <section class="information">
+</div>
+    <section class="information">
   <h2 class="visually-hidden">Важная информация</h2>
   <div class="information__icon">
     <img src="img/warning-sign.svg" alt="">
@@ -222,9 +372,9 @@
   <p class="information__text">Все грузы попадают в РФ абсолютно легально, проходя растаможку. Помните, что правильное описание - залог сохранности груза и ваша страховка от конфискации таможенными органами</p>
 </section>
 
-  <section class="offers" id="offers">
+    <section class="offers" id="offers">
   <div class="offers__top">
-    <h2 class="offers__title title title--light"><span>Предложим</span>оптимальное решение</h2>
+    <h2 class="offers__title title title--light"><span>Предложим</span> оптимальное решение</h2>
     <p class="offers__info info info--light">
       <img class="info__img" src="img/time.svg">
       Сделаем расчет за 30 минут
@@ -233,7 +383,7 @@
   <div class="offers__body">
     <div class="offers__inner">
       <form action="" class="offers__form">
-        <input type="hidden" name="formtype" value="Расчет стоимости доставки из США">
+        <input type="hidden" name="formtype" value="Предложим оптимальное решение - Расчет стоимости доставки из США">
         <h3 class="offers__subtitle">Расчет стоимости доставки из США</h3>
         <div class="offers__group">
           <div class="offers__item field">
@@ -279,7 +429,7 @@
     </div>
   </div>
 </section>
-  <section class="about" data-controller="slider-about">
+    <section class="about" data-controller="slider-about">
   <div class="about__inner">
     <div class="about__chat chat chat--active">
       <ul class="chat__list">
@@ -357,10 +507,11 @@
     </div>
   </div>
 </section>
-  <section class="cta">
+    <section class="cta">
   <div class="cta__content">
     <h2 class="cta__title">Что бы перевезти груз, вам потребуется только <b>1 действие и 2-3 минуты в день</b></h2>
-    <p class="cta__description">Все остальное мы берем на себя и несем финаносую ответственность за груз, просрочки, форс мажоры</p>
+    <p class="cta__description">Все остальное мы берем на себя и несем финаносую ответственность за груз, просрочки,
+      форс мажоры</p>
     <div class="cta__place">
       <p class="cta__top">От вас <span>1</span> действие</p>
       <div class="cta__icon">
@@ -368,14 +519,14 @@
       </div>
       <div class="cta__name">Оставить заявку и описать задачу</div>
       <p class="cta__text">Заявку вы можете оставить в любом месте на сайте или позвонить
-        <a href="tel:+7800 360-45-77">+7800 360-45-77</a></p>
-      <a href="#" class="cta__button button">Оставить заявку</a>
+        <a href="tel:+7800 360-45-77">+7800 360-45-77</a>
+      </p>
+      <a href="javascript://" class="cta__button button get-popup" data-popup="popup">Оставить заявку</a>
     </div>
   </div>
   <img src="img/car@clean.png" alt="" class="cta__img">
 </section>
-
-  <section class="process" data-controller="slider-about">
+    <section class="process" data-controller="slider-about">
   <div class="process__top">
     <h2 class="process__title">Далее мы делаем <span>всю работу</span></h2>
     <div class="process__controls controls">
@@ -424,7 +575,7 @@
   </div>
 </section>
 
-  <section class="complex">
+    <section class="complex">
   <div class="complex__top">
     <h2 class="complex__title title title--light"><span>Полный</span> комплекс услуг</h2>
     <p class="complex__info info info--light">
@@ -472,10 +623,11 @@
   </ul>
 </section>
 
-  <section class="reviews" data-controller="reviews">
+    <section class="reviews" data-controller="reviews">
   <div class="reviews__place">Решаем самые неординарные, тяжелые задачи</div>
   <h2 class="reviews__title title">Выполненные проекты <span>и отзывы</span></h2>
-  <p class="reviews__description">Мы не можем выложить все проекты в открытый достпу поскольку подписали NDA (?) но вот несколько задач, которыми мы гордимся</p>
+  <p class="reviews__description">Мы не можем выложить все проекты в открытый достпу поскольку подписали NDA (?) но вот
+    несколько задач, которыми мы гордимся</p>
   <div class="swiper-container" data-target="reviews.container">
     <ul class="reviews__list swiper-wrapper">
       <li class="reviews__item swiper-slide">
@@ -509,7 +661,7 @@
               <img src="img/piggy-bank.svg" alt="" class="reviews__icon"><span>Сэкономили клиету: </span>20.000 евро
             </li>
           </ul>
-          <a href="#" class="button button--thin">Отзыв клиента</a>
+
         </div>
       </li>
       <li class="reviews__item swiper-slide">
@@ -543,7 +695,7 @@
               <img src="img/piggy-bank.svg" alt="" class="reviews__icon"><span>Сэкономили клиету: </span>20.000 евро
             </li>
           </ul>
-          <a href="#" class="button button--thin">Отзыв клиента</a>
+
         </div>
       </li>
     </ul>
@@ -560,34 +712,11 @@
       </button>
     </div>
   </div>
-  <a href="#" class="reviews__button button">Рассчитать стоимость</a>
+  <a href="#offers" class="reviews__button button scroll-link">Рассчитать стоимость</a>
   <p class="reviews__preinfo">Работаем с любым объемом, от 40кг. до грузов стоимостью милионы евро</p>
 </section>
-
-  <section class="request">
-  <div class="request__inner">
-    <img src="img/request-img.png" alt="" class="request__img">
-    <div class="request__content">
-      <h2 class="request__title"><span>Предоставим контакты клиентов, которые</span> расскажут вам о нашей работе</h2>
-      <p class="request__description">По мелким вопросам мы не беспокоим, а если у вас есть вопрос или нужна помощь, вы можете написать или позвонить вашему персональному менеджеру</p>
-      <form data-controller="send-form" data-action="submit->send-form#send" action="post" class="request__form">
-        <div class="request__fields">
-          <div class="request__field field" data-message="Введено некорректное имя">
-            <input required autocomplete="off" type="text" name="weight" id="t21" class="field__input">
-            <label for="t21" class="field__label">Ваше имя</label>
-          </div>
-          <div class="request__field field" data-message="Введен некорректный номер">
-            <input autocomplete="off" type="text" inputmode="tel" name="weight" id="t41" class="field__input field__input--phone">
-            <label for="t41" class="field__label">Ваш телефон</label>
-          </div>
-        </div>
-        <button type="submit" class="request__button button">Оствить заявку на получение отзывов</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-  <section class="consultation">
+    
+    <section class="consultation">
   <div class="consultation__manager">
     <img src="img/manager.png" alt="" class="consultation__img">
     <div class="consultation__place">
@@ -596,27 +725,31 @@
     </div>
   </div>
   <div class="consultation__content">
-    <form data-controller="send-form" data-action="submit->send-form#send" action="post" class="consultation__form">
+    <form action="post" class="consultation__form">
+      <input type="hidden" name="formtype" value="Бесплатная консультация по таможне">
       <h2 class="consultation__title">Бесплатная <span>консультация по таможне</span></h2>
 
-      <div class="consultation__field field" data-message="Введен некорректный номер">
-        <textarea placeholder="Например, мне нужно перевести экскаватор из Италии в Москву,вы сможете загрузить его?" autocomplete="off" type="text" inputmode="tel" name="weight" id="t411" class="field__input field__input--textarea"></textarea>
+      <div class="consultation__field field">
+        <textarea placeholder="Например, мне нужно перевести экскаватор из Италии в Москву,вы сможете загрузить его?"
+          autocomplete="off" name="message" id="t411" class="field__input field__input--textarea"></textarea>
         <label for="t411" class="field__label visually-hidden">Вопрос</label>
       </div>
+
       <button type="submit" class="consultation__button button">Отправить вопрос менеджеру</button>
     </form>
-    <p class="consultation__info">А если вопрос нету, предалагам, начать с <a href="#">расчета стоимости</a></p>
+    <p class="consultation__info">А если вопрос нету, предалагам, начать с <a href="#offers" class="scroll-link">расчета
+        стоимости</a></p>
   </div>
 </section>
-
-</main>
-<footer class="footer">
+  </main>
+  <footer class="footer">
   <div class="footer__video">
     <video class="lazy" src="img/footer-video.mp4" loop autoplay muted lazy></video>
   </div>
   <div class="footer__content">
     <p class="footer__title">Решим любую задачу с любовью к вам и вашему грузу</p>
-    <p class="footer__description"><b>Свяжитесь с нами любым удобным способом,</b> мы бесплатно проконсультируем вас и поможем решить задачу, даже если вы не будете заказывать у нас</p>
+    <p class="footer__description"><b>Свяжитесь с нами любым удобным способом,</b> мы бесплатно проконсультируем вас и
+      поможем решить задачу, даже если вы не будете заказывать у нас</p>
     <div class="contacts__tabs tabs" data-tabs>
       <ul class="tabs__list">
         <li class="tabs__item tabs__item--active" data-tab="1">Офис в Москве</li>
@@ -627,7 +760,7 @@
         <div class="tabs__content tabs__content--active" data-content="1">
           <div class="contacts__row">
             <div class="contacts__phone">
-              <a href="">+7 (800) <b>360-45-77</b></a>
+              <a href="tel:78003604577">+7 (800) <b>360-45-77</b></a>
               <span>Перезвоним за 8 сек.</span>
             </div>
             <ul class="contacts__social social">
@@ -651,7 +784,7 @@
         <div class="tabs__content" data-content="2">
           <div class="contacts__row">
             <div class="contacts__phone">
-              <a href="">+7 (800) <b>360-45-77</b></a>
+              <a href="tel:78003604577">+7 (800) <b>360-45-77</b></a>
               <span>Перезвоним за 8 сек.</span>
             </div>
             <ul class="contacts__social social">
@@ -675,7 +808,7 @@
         <div class="tabs__content" data-content="3">
           <div class="contacts__row">
             <div class="contacts__phone">
-              <a href="">+7 (800) <b>360-45-77</b></a>
+              <a href="tel:78003604577">+7 (800) <b>360-45-77</b></a>
               <span>Перезвоним за 8 сек.</span>
             </div>
             <ul class="contacts__social social">
@@ -696,17 +829,17 @@
             </div>
           </div>
         </div>
-        <a href="" class="footer__button button get-popup" data-popup="popup-consultation">Рассчитать стоимость</a>
+        <a href="" class="footer__button button get-popup" data-popup="popup">Рассчитать стоимость</a>
       </div>
     </div>
   </div>
   <div class="footer__bottom">
     <img src="img/logo.svg" alt="" class="footer__logo">
     <ul class="footer__list">
-      <li class="footer__item"><a href="#">Реквизиты</a></li>
-      <li class="footer__item"><a href="#">Политика конфиденциальности</a></li>
-      <li class="footer__item"><a href="#">Перевозчикамм</a></li>
-      <li class="footer__item"><a href="#">Создание и продвижение сайтов</a></li>
+
+      <li class="footer__item"><a href="politics.html">Политика конфиденциальности</a></li>
+
+      <li class="footer__item"><a href="https://incrona.com/" target="_blank">Создание и продвижение сайтов</a></li>
     </ul>
     <ul class="footer__social social">
       <li class="social__item"><a href="#"><img src="img/whatsapp.svg" alt=""></a></li>
@@ -715,8 +848,7 @@
     </ul>
   </div>
 </footer>
-
-<div class="popup" data-popup="popup">
+  <div class="popup" data-popup="popup">
   <div class="popup__wrapper">
     <div class="popup__body popup__body--callback">
       <button class="popup__close" aria-label="close">
@@ -747,7 +879,8 @@
     </div>
   </div>
 </div>
-<script src="js/vendor.js"></script>
-<script src="js/general.js"></script>
+  <script src="js/vendor.js"></script>
+  <script src="js/general.js"></script>
 </body>
+
 </html>

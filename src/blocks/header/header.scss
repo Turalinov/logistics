@@ -32,7 +32,24 @@
     .menu__burger {
       svg {
         fill: $c-accent;
+
+        line {
+          stroke: $c-accent;
+        }
       }
+    }
+
+    .menu__wrapper {
+      background: #e1e1e1;
+
+      a {
+        color: #000000;
+      }
+    }
+
+    .menu__list--main p::after,
+    .menu__list--main p::before {
+      background-color: #000000;
     }
   }
 }
@@ -40,7 +57,7 @@
 .header__right {
   display: none;
   right: 70px;
-    position: absolute;
+  position: absolute;
 
   &--opened {
     display: block;
@@ -62,6 +79,7 @@
 .header__contacts {
   z-index: 102;
   display: none;
+
   &--inside {
     display: none;
   }
