@@ -6624,7 +6624,7 @@ a {
     max-height: 360px; } }
 
 .text-block {
-  padding: 0 20px 20px 20px;
+  padding: 20px 20px 20px 20px;
   font-size: 12px;
   line-height: 16px; }
   .text-block h2 {
@@ -6648,6 +6648,7 @@ a {
   .text-block {
     padding-right: calc(50% - 585px);
     padding-left: calc(50% - 585px);
+    padding-top: 77px;
     padding-bottom: 77px;
     font-size: 16px;
     line-height: 25px;

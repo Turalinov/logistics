@@ -9,20 +9,21 @@
     <div class="offers__body">
       <div class="offers__inner offers__inner--inside">
         <form action="" class="offers__form offers__form--inside offers__form--consultation">
-
+          <input type="hidden" name="formtype" value="Получите бесплатную консультацию">
           <div class="offers__group offers__group--consultation">
-            <input type="hidden" name="formtype" value="Получите бесплатную консультацию">
-            <div class="offers__item offers__item--1 field">
-              <input autocomplete="off" type="text" name="username" id="t3" class="field__input offers-inside__input">
+
+            <div class="offers__item offers__item--1 field" data-message="Введено некорректное имя">
+              <input required autocomplete="off" type="text" name="username" id="t3"
+                class="field__input offers-inside__input">
               <label data-description="Ваше имя" for="t3" class="field__label offers-inside__label">Ваше имя</label>
             </div>
-            <div class="offers__item offers__item--2 field">
+            <div class="offers__item offers__item--2 field" data-message="Введен некорректный номер">
               <input autocomplete="off" type="text" inputmode="tel" name="phone" id="t4"
                 class="field__input field__input--phone offers-inside__input">
               <label data-description="Ваш телефон" for="t4" class="field__label offers-inside__label">Ваш
                 телефон</label>
             </div>
-            <div class="offers__item offers__item--3 field">
+            <div class="offers__item offers__item--3 field" data-message="Введена некорректная почта">
               <input autocomplete="off" type="email" name="email" id="t5" class="field__input offers-inside__input">
               <label data-description="Ваша почта" for="t5" class="field__label offers-inside__label">Ваша почта</label>
             </div>

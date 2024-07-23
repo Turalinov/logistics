@@ -79,7 +79,7 @@
       <!-- <li class="menu__sub-item"><a href="delivery-terms.html">Сроки доставки</a></li> -->
       <li class="menu__sub-item"><a href="purchase-and-selection-of-goods.html">Выкуп и подбор товара</a></li>
       <li class="menu__sub-item"><a href="warehouse-capabilities.html">Возможности склада</a></li>
-      <!-- <li class="menu__sub-item"><a href="#">Гарантии сохранности товара</a></li> -->
+      <!-- <li class="menu__sub-item"><a href="goods-safety-guarantees">Гарантии сохранности товара</a></li> -->
       <li class="menu__sub-item"><a href="#">Расчёт объёмного груза</a></li>
     </ul>
   </li>
@@ -242,7 +242,7 @@
 </header>
   <main>
     <section class="page-title">
-      <h1 class="page-title__title">Гарантии сохранности товара</h1>
+      <h1 class="page-title__title">Возможности склада</h1>
       <ul class="breadcrumbs">
   <li class="breadcrumbs__item">
     <a href="#" class="breadcrumbs__link">Главная</a>
@@ -253,109 +253,112 @@
 </ul>
     </section>
 
-    <section class="block-guarantees">
-  <div class="block-guarantees__wrap">
-    <img class="block-guarantees__img" src="img/home-clothing__img.jpg" alt="">
-    <div class="block-guarantees__inner">
-      <img class="block-guarantees__img" src="img/toy-elephant__img.jpg" alt="">
+    <section class="offers offers--inside">
+  <div class="offers__wrapper">
+    <div class="offers__top offers__top--inside">
+      <h2 class="offers__title title offers__title--inside">Рассчитайте стоимость складского обслуживания</h2>
+
     </div>
-    <div class="block-guarantees__inner">
-      <img class="block-guarantees__img" src="img/cosmetic-skin__img.jpg" alt="">
+    <div class="offers__body">
+      <div class="offers__inner offers__inner--inside">
+        <form action="" class="offers__form offers__form--inside">
+          <input type="hidden" name="formtype"
+            value="Возможности склада - Рассчитайте стоимость складского обслуживания ">
+          <div class="offers__group">
+            <div class="offers__item field">
+              <input autocomplete="off" type="text" name="cargo_type" id="t1" class="field__input offers-inside__input">
+              <label data-description="Тип груза" for="t1" class="field__label offers-inside__label">Тип груза</label>
+            </div>
+            <div class="offers__item field">
+              <input autocomplete="off" type="text" name="cargo_weight" id="t2"
+                class="field__input offers-inside__input">
+              <label data-description="Вес груза" for="t2" class="field__label offers-inside__label">Вес груза</label>
+            </div>
+            <div class="offers__item field">
+              <input autocomplete="off" type="text" name="username" id="t3" class="field__input offers-inside__input">
+              <label data-description="Ваше имя" for="t3" class="field__label offers-inside__label">Ваше имя</label>
+            </div>
+            <div class="offers__item field">
+              <input autocomplete="off" type="text" inputmode="tel" name="phone" id="t4"
+                class="field__input field__input--phone offers-inside__input">
+              <label data-description="Ваш телефон" for="t4" class="field__label offers-inside__label">Ваш
+                телефон</label>
+            </div>
+            <div class="offers__item field">
+              <input autocomplete="off" type="email" name="email" id="t5" class="field__input offers-inside__input">
+              <label data-description="Ваша почта" for="t5" class="field__label offers-inside__label">Ваша почта</label>
+            </div>
+            <div class="offers__item field">
+              <textarea autocomplete="off" name="message" id="t6"
+                class="field__input field__textarea offers-inside__input"></textarea>
+              <label data-description="Комментарий по заказу" for="t6"
+                class="field__label offers-inside__label">Комментарий по заказу</label>
+            </div>
+          </div>
+          <div class="offers__row">
+            <div class="offers__receive offers__receive--inside">
+              <p class="offers__header offers__header--inside">Вы получите</p>
+              <p class="offers__info offers__info--inside">
+                <img src="img/offers-icon@white.svg" alt="" class="offers__icon">
+                Юр лицам предоставляются все документы на груз
+              </p>
+            </div>
+            <div class="offers__controls">
+              <button class="offers__button button">Рассчитать стоимость</button>
+              <p class="offers__desc offers__desc--inside">С расчетом вы получите консультацию под кнопку рассчитать
+                стоимость</p>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
-  <div class="block-guarantees__box">
-    <h2 class="block-guarantees__title title">Какой-то заголовок</h2>
-    <p class="block-guarantees__text">Одним из основных направлений компании ATLANTIC FREIGHT, помимо грузоперевозок из США, является предоставление профессионального складского сервиса по территории Соединенных Штатов: Делавэр, Нью-Йорк, Хьюстон, Чикаго, Лос-Анджелес и Майями. </p>
-    <p class="block-guarantees__text">Одним из основных направлений компании ATLANTIC FREIGHT, помимо грузоперевозок из США, является предоставление профессионального складского сервиса по территории Соединенных Штатов: Делавэр, Нью-Йорк, Хьюстон, Чикаго, Лос-Анджелес и Майями. </p>
   </div>
 </section>
 
-
-    <section class="guarantees" data-controller="slider-guarantees">
-      <div class="warning">
-        <p class="warning__red">Не зависит от нас</p>
-        <p class="warning__title">Гарантии</p>
-        <p class="warning__description">Мы всегда предоставляем полную и честную информацию о ваших грузах, никогда не
-          морочим Вам голову, мы знаем - вы это цените! 90% наших грузов доставляются ровно в срок, однако стоит
-          упомянуть о возможных задержках, которые иногда случаются:</p>
+    <div class="abilities">
+      <div class="abilities__wrapper">
+        <p class="abilities__title">Собственный склад в США</p>
+        <p class="abilities__description">Одним из основных направлений компании ATLANTIC FREIGHT, помимо грузоперевозок
+          из США, является предоставление профессионального складского сервиса по территории Соединенных Штатов:
+          Делавэр, Нью-Йорк, Хьюстон, Чикаго, Лос-Анджелес и Майями.</p>
       </div>
-
-      <div class="swiper-container guarantees__wrapper" data-target="slider-guarantees.container">
-        <ul class="guarantees__list swiper-wrapper">
-          <li class="guarantees__item swiper-slide">
-            <div class="guarantees__img-wrapper">
-              <img src="img/guarantees__img.png" alt="" class="guarantees__icon">
-            </div>
-            <p class="guarantees__name">Заголовок</p>
-            <p class="guarantees__text">Грузоперевозки из США компания Capitals Logistics осуществляет авиационным и
-              морским транспортом. Это обусловлено тем</p>
-          </li>
-          <li class="guarantees__item swiper-slide">
-            <div class="guarantees__img-wrapper">
-              <img src="img/guarantees__img.png" alt="" class="guarantees__icon">
-            </div>
-            <p class="guarantees__name">Заголовок</p>
-            <p class="guarantees__text">Грузоперевозки из США компания Capitals Logistics осуществляет авиационным и
-              морским транспортом. Это обусловлено тем Грузоперевозки из США компания Capitals Logistics осуществляет
-              авиационным и морским транспортом. Это обусловлено тем</p>
-          </li>
-          <li class="guarantees__item swiper-slide">
-            <div class="guarantees__img-wrapper">
-              <img src="img/guarantees__img.png" alt="" class="guarantees__icon">
-            </div>
-            <p class="guarantees__name">Заголовок</p>
-            <p class="guarantees__text">Грузоперевозки из США компания Capitals Logistics осуществляет авиационным и
-              морским транспортом. Это обусловлено тем</p>
-          </li>
-          <li class="guarantees__item swiper-slide">
-            <div class="guarantees__img-wrapper">
-              <img src="img/guarantees__img.png" alt="" class="guarantees__icon">
-            </div>
-            <p class="guarantees__name">Заголовок</p>
-            <p class="guarantees__text">Грузоперевозки из США компания Capitals Logistics осуществляет авиационным и
-              морским транспортом. Это обусловлено тем</p>
-          </li>
-        </ul>
-        <div class="guarantees__controls controls">
-          <button class="controls__button" data-target="slider-guarantees.prev">
-            <svg>
-              <use xlink:href="img/sprites/sprite.svg#icon-arrow-left"></use>
-            </svg>
-          </button>
-          <button class="controls__button" data-target="slider-guarantees.next">
-            <svg>
-              <use xlink:href="img/sprites/sprite.svg#icon-arrow-right"></use>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <section class="consultation">
-  <div class="consultation__manager">
-    <img src="img/manager.png" alt="" class="consultation__img">
-    <div class="consultation__place">
-      <p class="consultation__name">Абрамова Виктория</p>
-      <p class="consultation__position">Менеджер по работе с клиентами</p>
     </div>
-  </div>
-  <div class="consultation__content">
-    <form action="post" class="consultation__form">
-      <input type="hidden" name="formtype" value="Бесплатная консультация по таможне">
-      <h2 class="consultation__title">Бесплатная <span>консультация по таможне</span></h2>
-
-      <div class="consultation__field field">
-        <textarea placeholder="Например, мне нужно перевести экскаватор из Италии в Москву,вы сможете загрузить его?"
-          autocomplete="off" name="message" id="t411" class="field__input field__input--textarea"></textarea>
-        <label for="t411" class="field__label visually-hidden">Вопрос</label>
+    <div class="abilities">
+      <div class="abilities__wrapper">
+        <p class="abilities__title">Аренда склада</p>
+        <p class="abilities__description">Одним из основных направлений компании ATLANTIC FREIGHT, помимо грузоперевозок
+          из США, является предоставление профессионального складского сервиса по территории Соединенных Штатов:
+          Делавэр, Нью-Йорк, Хьюстон, Чикаго, Лос-Анджелес и Майями.</p>
       </div>
+    </div>
+    <div class="abilities">
+      <div class="abilities__wrapper">
+        <p class="abilities__title">Хранение грузов</p>
+        <p class="abilities__description">Сервис ответственного хранения товаров позволяет нашим клиентам использовать
+          постоянный американский адрес в отгрузочных документах для поставщиков с последующей доставкой товаров и их
+          обработкой в соответствии с заявленными инструкциями. Также мы осуществляем складское обслуживание для
+          импортных товаров с дальнейшей доставкой получателям по США. Для большинства клиентов мы предоставляем
+          льготные условия в виде 7 дней бесплатного хранения на складе.</p>
+      </div>
+    </div>
 
-      <button type="submit" class="consultation__button button">Отправить вопрос менеджеру</button>
-    </form>
-    <p class="consultation__info">А если вопрос нету, предалагам, начать с <a href="#offers" class="scroll-link">расчета
-        стоимости</a></p>
+    <section class="abilities-slider" data-controller="slider-abilities">
+  <div class="swiper-container" data-target="slider-abilities.container">
+    <ul class="abilities-slider__list swiper-wrapper">
+      <li class="abilities-slider__item swiper-slide">
+        <img src="img/abilities__slide1.png" alt="slide1">
+      </li>
+      <li class="abilities-slider__item swiper-slide">
+        <img src="img/abilities__slide2.png" alt="slide1">
+      </li>
+      <li class="abilities-slider__item swiper-slide">
+        <img src="img/abilities__slide3.png" alt="slide1">
+      </li>
+    </ul>
   </div>
 </section>
+
+    
   </main>
   <footer class="footer">
   <div class="footer__video">

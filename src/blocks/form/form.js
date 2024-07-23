@@ -2,8 +2,6 @@ import { PopupThanks } from "../../blocks/popup/popup.js";
 
 export default function form() {
 
-
-
   const forms = document.querySelectorAll(`form`);
 
   if (forms && forms.length > 0) {
@@ -23,7 +21,12 @@ export default function form() {
 
       [].forEach.call(fields, (el) => {
 
+        if (el.type === 'hidden') {
+          return;
+        }
+
         const parent = el.parentElement;
+
 
         let label = parent.querySelector('label');
 
@@ -33,15 +36,23 @@ export default function form() {
           if (parent.classList.contains('offers__controls')) {
             return; // Прерывает только текущую итерацию функции
           }
+          // Проверяем элемент на наличие кнопки отправки
+          if (parent.classList.contains('offers__btn')) {
+            return; // Прерывает только текущую итерацию функции
+          }
           // Переопределяем в кастомном селекте
           label = parent.closest('.offers__item').querySelector('label');
         }
+
 
         const tel = el.classList.contains('field__input--phone');
 
         const errorMessage = parent.dataset.message;
 
         const labelText = label.getAttribute('data-description');
+
+
+        console.log({ labelText });
 
         if (
           //если это поле required и это поле пустое
@@ -100,6 +111,11 @@ export default function form() {
 
       const formData = new FormData(target);
 
+      // Перебираем содержимое FormData
+      for (var pair of formData.entries()) {
+        console.log(pair[0] + ': ' + pair[1]);
+      }
+
       if (formValidate(target)) {
 
         //обаботка в зависимости от результата отправки
@@ -111,7 +127,7 @@ export default function form() {
             //показываем модалку благодарности
             new PopupThanks(popupThanks).openPopup()
           }).catch((err) => {
-            console.log(err.message);
+            console.log(err);
             alert(err.message);
 
             //можем показать модалку с ошибкой

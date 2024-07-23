@@ -3,6 +3,8 @@ class Popup {
 
     this.popup = popup
     this.name = this.popup.getAttribute('data-popup');
+
+    console.log({ name });
     this.open_btn = document.querySelectorAll('.get-popup[data-popup="' + this.name + '"]');
     this.popupClose = this.popup.querySelector('.popup__close');
     this.closer = this.popup.querySelector('.button--close');
